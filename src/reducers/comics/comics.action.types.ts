@@ -1,4 +1,4 @@
 export enum actionTypes {
-  'character@update' = 'character@update',
-  'character@load' = 'character@load',
+  'comic@update' = 'comic@update',
+  'comic@load' = 'comic@load',
 }

@@ -1,3 +1,3 @@
 export enum actionTypes {
-  'character@load' = 'character@load',
+  'artist@load' = 'artist@load',
 }
