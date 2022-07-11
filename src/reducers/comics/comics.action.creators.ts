@@ -7,5 +7,4 @@ export interface iAction {
 }
 
 export const loadComicsAction = createAction(actionTypes['comic@load']);
-
 export const updateComicsAction = createAction(actionTypes['comic@update']);

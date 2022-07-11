@@ -6,6 +6,4 @@ export interface iAction {
     payload: any;
 }
 
-export const loadArtistsAction = createAction(
-    actionTypes['artist@load'].toString()
-);
+export const loadArtistsAction = createAction(actionTypes['artist@load']);
