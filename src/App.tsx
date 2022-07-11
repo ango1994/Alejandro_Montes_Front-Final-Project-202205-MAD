@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { Layout } from './components/layout';
 import { iRouterItem } from './interfaces/iRouterItem';
 import { loadArtistsAction } from './reducers/artists/artists.action.creators';
 import { loadComicsAction } from './reducers/comics/comics.action.creators';
@@ -53,17 +54,19 @@ function App() {
         },
     ];
     return (
-        <React.Suspense>
-            <Routes>
-                {routerOptions.map((item) => (
-                    <Route
-                        key={item.label}
-                        path={item.path}
-                        element={item.page}
-                    ></Route>
-                ))}
-            </Routes>
-        </React.Suspense>
+        <Layout menuOptions={routerOptions}>
+            <React.Suspense>
+                <Routes>
+                    {routerOptions.map((item) => (
+                        <Route
+                            key={item.label}
+                            path={item.path}
+                            element={item.page}
+                        ></Route>
+                    ))}
+                </Routes>
+            </React.Suspense>
+        </Layout>
     );
 }
 
