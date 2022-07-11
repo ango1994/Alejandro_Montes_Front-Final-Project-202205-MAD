@@ -1,4 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
+import { iComic } from '../../interfaces/iComics';
 import { actionTypes } from './comics.action.types';
 
 export interface iAction {
@@ -6,5 +7,9 @@ export interface iAction {
     payload: any;
 }
 
-export const loadComicsAction = createAction(actionTypes['comic@load']);
-export const updateComicsAction = createAction(actionTypes['comic@update']);
+export const loadComicsAction = createAction<Array<iComic>>(
+    actionTypes['comic@load']
+);
+export const updateComicsAction = createAction<iComic>(
+    actionTypes['comic@update']
+);
