@@ -1,9 +1,12 @@
 import { createAction } from '@reduxjs/toolkit';
+import { iArtist } from '../../interfaces/iArtist';
 import { actionTypes } from './artists.action.types';
 
 export interface iAction {
     type: actionTypes;
-    payload: any;
+    payload?: any;
 }
 
-export const loadArtistsAction = createAction(actionTypes['artist@load']);
+export const loadArtistsAction = createAction<Array<iArtist>>(
+    actionTypes['artist@load']
+);
