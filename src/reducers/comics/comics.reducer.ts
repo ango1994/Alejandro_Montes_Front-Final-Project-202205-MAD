@@ -10,5 +10,6 @@ export const comicsReducer = createReducer(initialState, (builder) => {
             state.map((comic) =>
                 comic.id === action.payload.id ? action.payload : comic
             )
-        );
+        )
+        .addDefaultCase((state) => state);
 });
