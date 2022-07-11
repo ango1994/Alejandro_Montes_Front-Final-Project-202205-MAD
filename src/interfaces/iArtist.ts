@@ -1,5 +1,5 @@
 export interface iArtist {
-    id?: string;
+    id: string;
     name: string;
     about: string;
     image: string;
