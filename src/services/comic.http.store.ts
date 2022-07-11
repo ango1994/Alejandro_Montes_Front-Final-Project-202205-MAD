@@ -18,8 +18,8 @@ export class ComicHttpStore {
             resp.json()
         );
     }
-    scoreComic(comic: iComic, score: number): Promise<iComic> {
-        return fetch(this.apiUrl + 'score' + comic.id, {
+    scoreComic(comicId: string, score: number): Promise<iComic> {
+        return fetch(this.apiUrl + 'score' + comicId, {
             method: 'PATCH',
             body: JSON.stringify({ score: score }),
             headers: {

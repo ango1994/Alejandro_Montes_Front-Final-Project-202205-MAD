@@ -58,14 +58,16 @@ describe('Given ComicHttpStore', () => {
             global.fetch = jest.fn().mockResolvedValue({
                 json: jest.fn().mockResolvedValue({
                     ...comic1,
-                    score: 7,
+                    score: [{ user: '', scored: 7 }],
                 }),
             });
             const api = new ComicHttpStore();
             const response = await api.scoreComic(comic1, 7);
+            console.log(response);
+
             expect(response).toEqual({
                 ...comic1,
-                score: 7,
+                score: [{ user: '', scored: 7 }],
             });
         });
     });

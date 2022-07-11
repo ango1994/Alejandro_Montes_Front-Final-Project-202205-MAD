@@ -3,7 +3,7 @@ export interface userWithToken {
     user: iUser;
 }
 export interface iUser {
-    id: string;
+    id?: string;
     name: string;
     email: string;
     password: string;
