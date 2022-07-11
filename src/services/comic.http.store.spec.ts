@@ -62,7 +62,7 @@ describe('Given ComicHttpStore', () => {
                 }),
             });
             const api = new ComicHttpStore();
-            const response = await api.scoreComic(comic1, 7);
+            const response = await api.scoreComic(comic1.id, 7);
             console.log(response);
 
             expect(response).toEqual({
