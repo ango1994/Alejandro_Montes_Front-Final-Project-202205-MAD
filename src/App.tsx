@@ -6,6 +6,7 @@ import { Layout } from './components/layout';
 import { iRouterItem } from './interfaces/iRouterItem';
 import { loadArtistsAction } from './reducers/artists/artists.action.creators';
 import { loadComicsAction } from './reducers/comics/comics.action.creators';
+import { loadUserAction } from './reducers/users/users.action.creators';
 import { ArtistHttpStore } from './services/artist.http.store';
 import { ComicHttpStore } from './services/comic.http.store';
 
@@ -21,7 +22,12 @@ function App() {
         apiComics
             .getAllComics()
             .then((comics) => dispatcher(loadComicsAction(comics)));
+        const user = localStorage.getItem('user');
+        if (user) {
+            dispatcher(loadUserAction(JSON.parse(user)));
+        }
     }, [apiArtsits, apiComics, dispatcher]);
+
     const HomePage = React.lazy(() => import('./pages/home'));
     const CategoriesPage = React.lazy(() => import('./pages/categories'));
     const ArtistsPage = React.lazy(() => import('./pages/artists'));

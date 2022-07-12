@@ -19,6 +19,7 @@ export function Login() {
 
         if (response.token) {
             dispatch(loadUserAction(response));
+            localStorage.setItem('user', JSON.stringify(response));
             navigate('/mycomix');
         }
     };
