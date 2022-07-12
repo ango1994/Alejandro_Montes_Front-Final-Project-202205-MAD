@@ -16,7 +16,7 @@ export class UserHttpStore {
         }).then((resp) => resp.json());
     }
 
-    loginUser(user: iUser): Promise<userWithToken> {
+    loginUser(user: Partial<iUser>): Promise<userWithToken> {
         return fetch(this.apiUrl + 'login', {
             method: 'POST',
             body: JSON.stringify({ name: user.name, password: user.password }),
