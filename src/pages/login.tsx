@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loadUserAction } from '../reducers/users/users.action.creators';
 import { UserHttpStore } from '../services/user.http.store';
+import styles from './login.module.css';
 
 export function Login() {
     const dispatch = useDispatch();
@@ -33,8 +34,9 @@ export function Login() {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={styles.form}>
                 <input
+                    className={styles.input}
                     type="text"
                     name="name"
                     value={formData.user.name}
@@ -42,13 +44,16 @@ export function Login() {
                     placeholder="Username"
                 />
                 <input
+                    className={styles.input}
                     type="text"
                     name="password"
                     value={formData.user.password}
                     onChange={handleChange}
                     placeholder="Password"
                 />
-                <button type="submit"></button>
+                <button type="submit" className={styles.sendButton}>
+                    Send
+                </button>
             </form>
         </div>
     );

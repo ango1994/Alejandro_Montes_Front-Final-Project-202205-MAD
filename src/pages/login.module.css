@@ -1,0 +1,43 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    border: none;
+    width: 394px;
+    height: 56px;
+    margin: 30px 0px;
+    background-color: #101010;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    border-bottom: solid white 1px;
+    outline: none;
+}
+.input:focus {
+    border-bottom: solid white 1px;
+    outline: none;
+}
+
+.input::placeholder {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 25 px;
+}
+
+.sendButton {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #101010;
+    color: white;
+    border: none;
+    font-size: 24 px;
+}
+
+.pepe {
+    font-size: 40px;
+}
