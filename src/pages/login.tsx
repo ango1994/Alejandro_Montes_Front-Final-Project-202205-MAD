@@ -39,6 +39,7 @@ export function Login() {
                     className={styles.input}
                     type="text"
                     name="name"
+                    required
                     value={formData.user.name}
                     onChange={handleChange}
                     placeholder="Username"
@@ -47,6 +48,7 @@ export function Login() {
                     className={styles.input}
                     type="text"
                     name="password"
+                    required
                     value={formData.user.password}
                     onChange={handleChange}
                     placeholder="Password"
