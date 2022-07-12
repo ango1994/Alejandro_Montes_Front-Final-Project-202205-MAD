@@ -7,5 +7,5 @@ export interface iUser {
     name: string;
     email: string;
     password: string;
-    comics: Array<string>;
+    comics?: Array<string>;
 }
