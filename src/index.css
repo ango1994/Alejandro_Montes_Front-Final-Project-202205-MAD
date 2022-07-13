@@ -13,6 +13,11 @@
     src: url('../public/fonts/PPNeueMontreal-Bold.woff') format('woff');
     font-weight: bold;
 }
+@font-face {
+    font-family: 'PPNeueMontreal';
+    src: url('../public/fonts/PPNeueMontreal-Book.woff') format('woff');
+    font-weight: 500;
+}
 
 body {
     margin: 0;
