@@ -1,0 +1,22 @@
+.container {
+    width: fit-content;
+    margin: 100px;
+}
+
+.name {
+    font-weight: lighter;
+    font-size: 3rem;
+    text-transform: uppercase;
+    padding: 40px 0px;
+}
+
+.image {
+}
+
+.line {
+    height: 1px;
+    width: 711px;
+    justify-content: center;
+    content: '';
+    background-color: white;
+}
