@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loadUserAction } from '../reducers/users/users.action.creators';
 import { UserHttpStore } from '../services/user.http.store';
+import styles from './login.module.css';
 
 export function Login() {
     const dispatch = useDispatch();
@@ -21,6 +22,8 @@ export function Login() {
             dispatch(loadUserAction(response));
             localStorage.setItem('user', JSON.stringify(response));
             navigate('/mycomix');
+        } else {
+            alert('User or password invalid');
         }
     };
 
@@ -33,22 +36,32 @@ export function Login() {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form
+                onSubmit={handleSubmit}
+                className={styles.form}
+                autoComplete="off"
+            >
                 <input
+                    className={styles.input}
                     type="text"
                     name="name"
+                    required
                     value={formData.user.name}
                     onChange={handleChange}
                     placeholder="Username"
                 />
                 <input
+                    className={styles.input}
                     type="text"
                     name="password"
+                    required
                     value={formData.user.password}
                     onChange={handleChange}
                     placeholder="Password"
                 />
-                <button type="submit"></button>
+                <button type="submit" className={styles.sendButton}>
+                    Send
+                </button>
             </form>
         </div>
     );

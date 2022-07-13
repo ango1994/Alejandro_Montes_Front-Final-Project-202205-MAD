@@ -26,9 +26,12 @@ export class UserHttpStore {
         }).then((resp) => resp.json());
     }
 
-    deleteUser(userId: string): Promise<iUser> {
+    deleteUser(userId: string, token: string): Promise<iUser> {
         return fetch(this.apiUrl + 'delete/' + userId, {
             method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
         }).then((resp) => resp.json());
     }
 
