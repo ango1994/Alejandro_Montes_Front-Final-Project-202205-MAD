@@ -3,22 +3,66 @@
     flex-direction: column;
     align-items: flex-end;
     width: 400px;
-    padding: 30px;
 }
 
 .navItem {
     text-decoration: none;
     font-family: 'PPNeueMontreal';
     color: #101010;
-    margin-right: 50px;
-    font-size: 25px;
+
+    font-size: 2rem;
     font-weight: 500;
+    padding: 10px;
 }
 
 .footer {
     display: flex;
+    flex-direction: column;
     justify-content: end;
-    align-items: flex-end;
+    align-items: center;
     background-color: white;
     margin-top: 100px;
+}
+
+.line {
+    height: 1px;
+    width: 90%;
+    justify-content: center;
+    content: '';
+    background-color: #101010;
+}
+
+.copy {
+    color: #101010;
+    margin: 20px;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 50px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 40px;
+}
+
+.caption {
+    color: #101010;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.msg {
+    color: #101010;
+    width: 50%;
+    text-align: right;
 }

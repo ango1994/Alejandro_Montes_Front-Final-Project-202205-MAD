@@ -5,26 +5,34 @@ import styles from './footer.module.css';
 export function Footer({ menuOptions }: { menuOptions: Array<iRouterItem> }) {
     return (
         <div className={styles.footer}>
-            <ul className={styles.navigation}>
-                {/* {menuOptions.map((route) => (
-                    <Link to={route.path} className={styles.navItem}>
-                        {route.label}
+            <div className={styles.top}>
+                <p className={styles.caption}>
+                    The right place to manage your comics
+                </p>
+                <ul className={styles.navigation}>
+                    <Link to={'/'} className={styles.navItem}>
+                        HOME
                     </Link>
-                    
-                ))} */}
-                <Link to={'/'} className={styles.navItem}>
-                    HOME
-                </Link>
-                <Link to={'/artists'} className={styles.navItem}>
-                    ARTISTS
-                </Link>
-                <Link to={'/categories'} className={styles.navItem}>
-                    CATEGORIES
-                </Link>
-                <Link to={'/mycomix'} className={styles.navItem}>
-                    MYCOMIX
-                </Link>
-            </ul>
+                    <Link to={'/artists'} className={styles.navItem}>
+                        ARTISTS
+                    </Link>
+                    <Link to={'/categories'} className={styles.navItem}>
+                        CATEGORIES
+                    </Link>
+                    <Link to={'/mycomix'} className={styles.navItem}>
+                        MYCOMIX
+                    </Link>
+                </ul>
+            </div>
+            <div className={styles.line}></div>
+            <div className={styles.bottom}>
+                <p className={styles.copy}>&copy; Alejandro Montes Domínguez</p>
+                <p className={styles.msg}>
+                    “The one place Gods inarguably exist is in our minds where
+                    they are real beyond refute, in all their grandeur and
+                    monstrosity.”
+                </p>
+            </div>
         </div>
     );
 }
