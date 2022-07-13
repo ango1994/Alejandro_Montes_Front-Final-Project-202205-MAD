@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loadUserAction } from '../reducers/users/users.action.creators';
 import { UserHttpStore } from '../services/user.http.store';
+import Swal from 'sweetalert2';
 import styles from './login.module.css';
 
 export function Login() {
@@ -16,14 +17,16 @@ export function Login() {
     const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
         const response = await new UserHttpStore().loginUser(formData.user);
-        console.log(response);
 
         if (response.token) {
             dispatch(loadUserAction(response));
             localStorage.setItem('user', JSON.stringify(response));
             navigate('/mycomix');
         } else {
-            alert('User or password invalid');
+            Swal.fire({
+                title: 'User or password invalid',
+                confirmButtonText: 'Ok',
+            });
         }
     };
 

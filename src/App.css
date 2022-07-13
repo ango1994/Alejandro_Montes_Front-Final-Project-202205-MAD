@@ -9,3 +9,25 @@ body {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.swal2-popup {
+    background: #101010 !important;
+    color: white !important;
+}
+
+.swal2-styled.swal2-confirm {
+    background: #101010 !important;
+    color: white !important;
+    border-radius: 0pc !important;
+    border-color: #101010 !important;
+    border-left-color: #101010 !important;
+    border-right-color: #101010 !important;
+}
+.swal2-actions {
+    border-radius: 0pc !important;
+    border-color: #101010 !important;
+}
+
+.swal2-title {
+    font-weight: lighter !important;
+}
