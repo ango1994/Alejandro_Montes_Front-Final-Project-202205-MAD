@@ -18,15 +18,16 @@
 .footer {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     background-color: white;
     margin-top: 100px;
+    height: 600px;
 }
 
 .line {
     height: 1px;
-    width: 90%;
+    width: 93%;
     justify-content: center;
     content: '';
     background-color: #101010;
