@@ -11,7 +11,6 @@ export function Register() {
         comics: [],
     });
     let navigate = useNavigate();
-
     const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
         const response = await new UserHttpStore().registerUser(formData);
@@ -19,6 +18,8 @@ export function Register() {
 
         if (response.name) {
             navigate('/login');
+        } else {
+            alert('invalid params');
         }
     };
 
@@ -50,7 +51,7 @@ export function Register() {
                     onChange={handleChange}
                     placeholder="Email"
                 />
-                <button type="submit"></button>
+                <button type="submit">Send</button>
             </form>
         </div>
     );
