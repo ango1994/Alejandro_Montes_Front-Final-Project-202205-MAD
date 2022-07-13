@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { iArtist } from '../interfaces/iArtist';
 import { iComic } from '../interfaces/iComics';
 import { userWithToken } from '../interfaces/iUser';
@@ -21,13 +21,14 @@ const preloadedState: iStore = {
     artists: [] as Array<iArtist>,
     user: {} as userWithToken,
 };
+
 describe('Given the Login component', () => {
     describe('When it is called', () => {
-        test('Then it shoul render the login page', () => {
+        test('Then it shoul render the login page', async () => {
             render(
-                <BrowserRouter>
+                <MemoryRouter>
                     <Login></Login>
-                </BrowserRouter>,
+                </MemoryRouter>,
                 { preloadedState, reducer }
             );
 
@@ -36,21 +37,40 @@ describe('Given the Login component', () => {
         });
     });
     describe('When form is filled and click button send', () => {
-        test('Then userHttpStore should be called', () => {
+        test('Then userHttpStore should be called', async () => {
             UserHttpStore.prototype.loginUser = jest
                 .fn()
-                .mockResolvedValue({ token: '', user: {} });
+                .mockResolvedValue({ token: '', user: { test: 'pepe' } });
             render(
-                <BrowserRouter>
+                <MemoryRouter>
                     <Login></Login>
-                </BrowserRouter>,
+                </MemoryRouter>,
                 { preloadedState, reducer }
             );
             const inputs = screen.getAllByRole('textbox');
             fireEvent.change(inputs[0], { target: { value: 'test' } });
+            fireEvent.change(inputs[1], { target: { value: 'test' } });
             const button = screen.getByRole('button');
             fireEvent.click(button);
 
+            expect(UserHttpStore.prototype.loginUser).toBeCalled();
+        });
+        test('Then navigate should be called', async () => {
+            // const mocknavigate = jest.spyOn(global, 'window', 'get');
+            UserHttpStore.prototype.loginUser = jest
+                .fn()
+                .mockResolvedValue({ token: '9', user: { test: 'pepe' } });
+            render(
+                <MemoryRouter>
+                    <Login></Login>
+                </MemoryRouter>,
+                { preloadedState, reducer }
+            );
+            const inputs = screen.getAllByRole('textbox');
+            fireEvent.change(inputs[0], { target: { value: 'test' } });
+            fireEvent.change(inputs[1], { target: { value: 'test' } });
+            const button = screen.getByRole('button');
+            fireEvent.click(button);
             expect(UserHttpStore.prototype.loginUser).toBeCalled();
         });
     });

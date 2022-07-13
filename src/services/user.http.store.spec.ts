@@ -41,7 +41,7 @@ describe('Given UserHttpStore', () => {
                 json: jest.fn().mockResolvedValue({}),
             });
             const api = new UserHttpStore();
-            const response = await api.deleteUser(user.id);
+            const response = await api.deleteUser(user.id, '');
             expect(response).toEqual({});
         });
     });

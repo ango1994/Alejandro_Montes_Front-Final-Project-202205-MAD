@@ -4,13 +4,25 @@
     font-weight: lighter;
 }
 
-.form {
+.header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 
-.input {
+.comix {
+    font-size: 61px;
+    font-weight: bold;
+    margin: 69px 79px;
+}
+
+.menu {
+    font-size: 41px;
+    margin: 69px 79px;
+}
+
+.search {
     border: none;
     width: 394px;
     height: 56px;
@@ -19,30 +31,19 @@
     color: white;
     font-family: 'PPNeueMontreal';
     font-weight: lighter;
-    font-size: 25px;
+    font-size: 20px;
     border-bottom: solid white 1px;
     outline: none;
 }
-.input:focus {
+.search:focus {
     border-bottom: solid white 1px;
     outline: none;
+    font-family: 'PPNeueMontreal';
 }
 
-.input::placeholder {
+.search::placeholder {
     color: white;
     font-family: 'PPNeueMontreal';
     font-weight: lighter;
     font-size: 25 px;
-}
-
-.input:focus::placeholder {
-    color: transparent;
-}
-
-.sendButton {
-    display: inline-block;
-    cursor: pointer;
-    background-color: #101010;
-    color: white;
-    border: none;
 }

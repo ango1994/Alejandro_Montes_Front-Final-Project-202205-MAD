@@ -22,6 +22,8 @@ export function Login() {
             dispatch(loadUserAction(response));
             localStorage.setItem('user', JSON.stringify(response));
             navigate('/mycomix');
+        } else {
+            alert('User or password invalid');
         }
     };
 
@@ -34,7 +36,11 @@ export function Login() {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form
+                onSubmit={handleSubmit}
+                className={styles.form}
+                autoComplete="off"
+            >
                 <input
                     className={styles.input}
                     type="text"
