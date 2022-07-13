@@ -1,7 +1,9 @@
 export function Home() {
     return (
         <div>
-            <h1>Home</h1>
+            <div>
+                <p>The place to manage your comics</p>
+            </div>
         </div>
     );
 }

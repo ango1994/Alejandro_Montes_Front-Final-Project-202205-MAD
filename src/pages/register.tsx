@@ -1,6 +1,8 @@
 import { SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { UserHttpStore } from '../services/user.http.store';
+import styles from './register.module.css';
 
 export function Register() {
     const [formData, setFormData] = useState({
@@ -19,7 +21,10 @@ export function Register() {
         if (response.name) {
             navigate('/login');
         } else {
-            alert('invalid params');
+            Swal.fire({
+                title: 'Invalid user o email',
+                confirmButtonText: 'Ok',
+            });
         }
     };
 
@@ -29,29 +34,41 @@ export function Register() {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form
+                onSubmit={handleSubmit}
+                className={styles.form}
+                autoComplete="off"
+            >
                 <input
+                    className={styles.input}
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Username"
+                    required
                 />
                 <input
+                    className={styles.input}
                     type="text"
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="Password"
+                    required
                 />
                 <input
+                    className={styles.input}
                     type="text"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Email"
+                    required
                 />
-                <button type="submit">Send</button>
+                <button type="submit" className={styles.sendButton}>
+                    Send
+                </button>
             </form>
         </div>
     );

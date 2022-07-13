@@ -12,9 +12,9 @@ export function Layout({
 }) {
     const template = (
         <>
-            <Header menuOptions={menuOptions} />
+            <Header />
             <main>{children}</main>
-            <Footer />
+            <Footer menuOptions={menuOptions} />
         </>
     );
     return template;

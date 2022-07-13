@@ -40,9 +40,13 @@
 }
 
 .sendButton {
+    margin-top: 30px;
     display: inline-block;
     cursor: pointer;
     background-color: #101010;
     color: white;
     border: none;
+    font-family: 'PPNeueMontreal';
+    font-weight: lighter;
+    font-size: 25px;
 }
