@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Layout } from './components/layout';
 import { iRouterItem } from './interfaces/iRouterItem';
-import CategoryPage from './pages/category.page';
 import { loadArtistsAction } from './reducers/artists/artists.action.creators';
 import { loadComicsAction } from './reducers/comics/comics.action.creators';
 import { loadUserAction } from './reducers/users/users.action.creators';
@@ -35,6 +34,9 @@ function App() {
     const MyComixPage = React.lazy(() => import('./pages/mycomix'));
     const LoginPage = React.lazy(() => import('./pages/login'));
     const RegisterPage = React.lazy(() => import('./pages/register'));
+    const AmericanPage = React.lazy(() => import('./pages/american'));
+    const EuropeanPage = React.lazy(() => import('./pages/european'));
+    const MangaPage = React.lazy(() => import('./pages/manga'));
 
     const routerOptions: Array<iRouterItem> = [
         { path: '/', label: 'Home', page: <HomePage></HomePage> },
@@ -44,9 +46,19 @@ function App() {
             page: <CategoriesPage></CategoriesPage>,
         },
         {
-            path: '/category',
-            label: 'Category',
-            page: <CategoryPage></CategoryPage>,
+            path: '/categories/american',
+            label: 'American',
+            page: <AmericanPage></AmericanPage>,
+        },
+        {
+            path: '/categories/european',
+            label: 'European',
+            page: <EuropeanPage></EuropeanPage>,
+        },
+        {
+            path: 'categories/manga',
+            label: 'Manga',
+            page: <MangaPage></MangaPage>,
         },
         {
             path: '/artists',
