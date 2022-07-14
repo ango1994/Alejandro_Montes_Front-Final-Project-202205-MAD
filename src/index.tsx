@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { store } from './store/store';
 import { BrowserRouter } from 'react-router-dom';
-import { Menu } from './components/menu';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

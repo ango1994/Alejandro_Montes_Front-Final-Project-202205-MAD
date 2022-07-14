@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
-import { Navigate } from 'react-router-dom';
+// import { Navigate, useNavigate } from 'react-router-dom';
+import Login from '../pages/login';
 
 export const ProtectedRoute = ({
     token,
@@ -9,8 +10,8 @@ export const ProtectedRoute = ({
     children: ReactElement;
 }) => {
     if (!token) {
-        return <Navigate to="/login" replace />;
+        return <Login></Login>;
+        // return <Navigate to="/login" replace />;
     }
-
     return children;
 };

@@ -10,7 +10,7 @@ import { loadUserAction } from './reducers/users/users.action.creators';
 import { ArtistHttpStore } from './services/artist.http.store';
 import { ComicHttpStore } from './services/comic.http.store';
 import { iStore } from './store/store';
-import { ProtectedRoute } from './utils/protecte.route';
+import { ProtectedRoute } from './utils/protect.route';
 
 function App() {
     const dispatcher = useDispatch();
