@@ -31,6 +31,7 @@ function App() {
     const HomePage = React.lazy(() => import('./pages/home'));
     const CategoriesPage = React.lazy(() => import('./pages/categories'));
     const ArtistsPage = React.lazy(() => import('./pages/artists'));
+    const ArtistPage = React.lazy(() => import('./pages/artist'));
     const MyComixPage = React.lazy(() => import('./pages/mycomix'));
     const LoginPage = React.lazy(() => import('./pages/login'));
     const RegisterPage = React.lazy(() => import('./pages/register'));
@@ -40,7 +41,7 @@ function App() {
     const ComicPage = React.lazy(() => import('./pages/comic'));
 
     const routerOptions: Array<iRouterItem> = [
-        { path: '/', label: 'Home', page: <HomePage></HomePage> },
+        { path: '/home', label: 'Home', page: <HomePage></HomePage> },
         {
             path: '/categories',
             label: 'Categories',
@@ -70,6 +71,11 @@ function App() {
             path: '/artists',
             label: 'Artists',
             page: <ArtistsPage></ArtistsPage>,
+        },
+        {
+            path: '/artist',
+            label: 'Artists',
+            page: <ArtistPage></ArtistPage>,
         },
         {
             path: '/mycomix',

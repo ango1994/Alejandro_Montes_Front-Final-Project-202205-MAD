@@ -12,8 +12,9 @@ export function American() {
                 {comics
                     .filter((comic) => comic.category === 'american')
                     .map((comic) => (
-                        <li>
+                        <li className={styles.comic}>
                             <PicComic comic={comic}></PicComic>
+                            <h3 className={styles.comicName}>{comic.name}</h3>
                         </li>
                     ))}
             </ul>

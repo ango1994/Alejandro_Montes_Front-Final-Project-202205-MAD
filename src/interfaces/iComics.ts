@@ -1,3 +1,5 @@
+import { iArtist } from './iArtist';
+
 export interface iComic {
     id: string;
     name: string;
@@ -5,6 +7,6 @@ export interface iComic {
     description: string;
     publicationDate: string;
     category: 'american' | 'european' | 'manga';
-    artist: Array<string>;
+    artist: Array<iArtist>;
     score: Array<{ user: string; scored: number }>;
 }

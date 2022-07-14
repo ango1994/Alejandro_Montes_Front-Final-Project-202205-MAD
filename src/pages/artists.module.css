@@ -1,3 +1,11 @@
+.artist {
+    padding: 40px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -7,14 +15,7 @@
     list-style: none;
 }
 
-.comic {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.comicName {
-    margin-top: 10px;
+.name {
+    margin-top: 20px;
     font-weight: lighter;
 }
