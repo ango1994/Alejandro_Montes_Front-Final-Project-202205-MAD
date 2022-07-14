@@ -10,12 +10,9 @@
     padding: 40px 0px;
 }
 
-.image {
-}
-
 .line {
     height: 1px;
-    width: 711px;
+    width: 960px;
     justify-content: center;
     content: '';
     background-color: white;
