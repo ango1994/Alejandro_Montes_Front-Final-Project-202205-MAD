@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Layout } from './components/layout';
@@ -9,11 +9,14 @@ import { loadComicsAction } from './reducers/comics/comics.action.creators';
 import { loadUserAction } from './reducers/users/users.action.creators';
 import { ArtistHttpStore } from './services/artist.http.store';
 import { ComicHttpStore } from './services/comic.http.store';
+import { iStore } from './store/store';
+import { ProtectedRoute } from './utils/protecte.route';
 
 function App() {
     const dispatcher = useDispatch();
     const apiArtsits = useMemo(() => new ArtistHttpStore(), []);
     const apiComics = useMemo(() => new ComicHttpStore(), []);
+    const token = useSelector((store: iStore) => store.user.token);
 
     useEffect(() => {
         apiArtsits
@@ -88,18 +91,35 @@ function App() {
             label: 'Register',
             page: <RegisterPage></RegisterPage>,
         },
+        {
+            path: '*',
+            label: 'Home',
+            page: <HomePage></HomePage>,
+        },
     ];
     return (
         <Layout menuOptions={routerOptions}>
             <React.Suspense>
                 <Routes>
-                    {routerOptions.map((item) => (
-                        <Route
-                            key={item.label}
-                            path={item.path}
-                            element={item.page}
-                        ></Route>
-                    ))}
+                    {routerOptions.map((item) =>
+                        item.path === '/mycomix' ? (
+                            <Route
+                                key={item.label}
+                                path={item.path}
+                                element={
+                                    <ProtectedRoute token={token}>
+                                        {item.page}
+                                    </ProtectedRoute>
+                                }
+                            ></Route>
+                        ) : (
+                            <Route
+                                key={item.label}
+                                path={item.path}
+                                element={item.page}
+                            ></Route>
+                        )
+                    )}
                 </Routes>
             </React.Suspense>
         </Layout>

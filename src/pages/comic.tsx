@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { iComic } from '../interfaces/iComics';
 
 import styles from './comic.module.css';
@@ -6,7 +6,9 @@ import styles from './comic.module.css';
 export function Comic() {
     const location = useLocation();
     const props = location.state as { comic: iComic };
-
+    if (!props) {
+        return <Navigate to="/home" replace />;
+    }
     return (
         <div>
             <h1>Comic</h1>

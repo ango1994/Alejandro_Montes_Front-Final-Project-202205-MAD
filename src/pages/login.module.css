@@ -4,6 +4,10 @@
     font-weight: lighter;
 }
 
+.headerPosition {
+    height: 100px;
+}
+
 .form {
     display: flex;
     flex-direction: column;

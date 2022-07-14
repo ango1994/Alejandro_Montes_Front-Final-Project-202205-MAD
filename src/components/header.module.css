@@ -23,6 +23,12 @@
 .menu {
     font-size: 41px;
     margin: 69px 79px;
+    background: none;
+    border: none;
+    font-family: 'PPNeueMontreal';
+    font-weight: lighter;
+    cursor: pointer;
+    color: white;
 }
 
 .search {
