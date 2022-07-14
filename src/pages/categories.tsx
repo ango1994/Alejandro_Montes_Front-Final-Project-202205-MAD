@@ -1,5 +1,5 @@
 import styles from './categories.module.css';
-import Category from './category';
+import Category from '../components/category';
 
 export function Categories() {
     return (
@@ -19,6 +19,7 @@ export function Categories() {
                         img="https://firebasestorage.googleapis.com/v0/b/comix-46ded.appspot.com/o/Portadas%2Feuropeo.png?alt=media&token=b4eba0e8-8df7-4ac0-b07d-72b59b18e06f"
                     ></Category>
                 </div>
+
                 <div>
                     <Category
                         name="american"

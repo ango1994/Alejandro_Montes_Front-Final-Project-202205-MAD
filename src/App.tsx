@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Layout } from './components/layout';
 import { iRouterItem } from './interfaces/iRouterItem';
+import CategoryPage from './pages/category.page';
 import { loadArtistsAction } from './reducers/artists/artists.action.creators';
 import { loadComicsAction } from './reducers/comics/comics.action.creators';
 import { loadUserAction } from './reducers/users/users.action.creators';
@@ -41,6 +42,11 @@ function App() {
             path: '/categories',
             label: 'Categories',
             page: <CategoriesPage></CategoriesPage>,
+        },
+        {
+            path: '/category',
+            label: 'Category',
+            page: <CategoryPage></CategoryPage>,
         },
         {
             path: '/artists',
