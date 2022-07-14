@@ -4,6 +4,7 @@ import Category from './category';
 export function Categories() {
     return (
         <div>
+            <div className={styles.page}></div>
             <div className={styles.categories}>
                 <div className={styles.container}>
                     <h1 className={styles.title}>categories</h1>
