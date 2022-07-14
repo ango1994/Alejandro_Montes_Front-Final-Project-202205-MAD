@@ -39,6 +39,7 @@ export function Login() {
     }
     return (
         <div>
+            <div className={styles.headerPosition}></div>
             <form
                 onSubmit={handleSubmit}
                 className={styles.form}

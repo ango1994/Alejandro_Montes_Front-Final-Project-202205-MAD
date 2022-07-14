@@ -10,7 +10,7 @@ export function Footer({ menuOptions }: { menuOptions: Array<iRouterItem> }) {
                     The right place to manage your comics
                 </p>
                 <ul className={styles.navigation}>
-                    <Link to={'/'} className={styles.navItem}>
+                    <Link to={'/home'} className={styles.navItem}>
                         HOME
                     </Link>
                     <Link to={'/artists'} className={styles.navItem}>
