@@ -1,7 +1,7 @@
 export function MyComix() {
     return (
         <div>
-            <h1>mycomicx</h1>
+            <h1>mycomix</h1>
         </div>
     );
 }

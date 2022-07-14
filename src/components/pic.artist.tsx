@@ -5,7 +5,7 @@ import styles from './pic.artist.module.css';
 export function PicArtist({ artist }: { artist: iArtist }) {
     return (
         <Link to={'/artist'} state={{ artist }}>
-            <img src={artist.image} alt="" className={styles.img} />
+            <img src={artist.image} alt={artist.name} className={styles.img} />
         </Link>
     );
 }
