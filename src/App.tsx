@@ -37,6 +37,7 @@ function App() {
     const AmericanPage = React.lazy(() => import('./pages/american'));
     const EuropeanPage = React.lazy(() => import('./pages/european'));
     const MangaPage = React.lazy(() => import('./pages/manga'));
+    const ComicPage = React.lazy(() => import('./pages/comic'));
 
     const routerOptions: Array<iRouterItem> = [
         { path: '/', label: 'Home', page: <HomePage></HomePage> },
@@ -44,6 +45,11 @@ function App() {
             path: '/categories',
             label: 'Categories',
             page: <CategoriesPage></CategoriesPage>,
+        },
+        {
+            path: '/comic',
+            label: 'Comic',
+            page: <ComicPage></ComicPage>,
         },
         {
             path: '/categories/american',
