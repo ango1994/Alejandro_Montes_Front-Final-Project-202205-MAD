@@ -21,7 +21,7 @@ const preloadedState: iStore = {
             artist: [] as Array<iArtist>,
             category: 'manga',
             description: '',
-            id: '',
+            _id: '',
             image: '',
             name: '',
             publicationDate: '',

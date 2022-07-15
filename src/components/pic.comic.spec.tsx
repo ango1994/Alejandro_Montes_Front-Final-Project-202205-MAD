@@ -16,7 +16,7 @@ const reducer = {
 };
 
 const mockComic: iComic = {
-    id: '',
+    _id: '',
     image: 'test',
     name: 'test',
     artist: [] as Array<iArtist>,
@@ -29,7 +29,7 @@ const mockComic: iComic = {
 const preloadedState: iStore = {
     comics: [] as Array<iComic>,
     artists: [] as Array<iArtist>,
-    user: {} as userWithToken,
+    user: { token: '99', user: { _id: '83' } } as userWithToken,
 };
 describe('Given the component Header', () => {
     describe('When it is called', () => {

@@ -8,7 +8,7 @@ export const comicsReducer = createReducer(initialState, (builder) => {
         .addCase(loadComicsAction, (state, action) => [...action.payload])
         .addCase(updateComicsAction, (state, action) =>
             state.map((comic) =>
-                comic.id === action.payload.id ? action.payload : comic
+                comic._id === action.payload._id ? action.payload : comic
             )
         )
         .addDefaultCase((state) => state);

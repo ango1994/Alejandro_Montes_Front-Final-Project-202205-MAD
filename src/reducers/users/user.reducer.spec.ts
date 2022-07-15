@@ -8,7 +8,7 @@ const user: userWithToken = {
     user: {
         comics: [],
         email: '',
-        id: '',
+        _id: '',
         name: '',
         password: '',
     },
@@ -20,7 +20,7 @@ describe('Given userReducer', () => {
             const initialState = {
                 token: '',
                 user: {
-                    id: '',
+                    _id: '',
                     comics: [],
                     email: '',
                     name: 'test',
@@ -40,7 +40,7 @@ describe('Given userReducer', () => {
                     user: {
                         comics: [''],
                         email: '',
-                        id: '',
+                        _id: '',
                         name: '',
                         password: '',
                     },

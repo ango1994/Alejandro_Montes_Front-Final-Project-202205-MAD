@@ -21,7 +21,7 @@ const preloadedState: iStore = {
             artist: [] as Array<iArtist>,
             category: 'american',
             description: '',
-            id: '',
+            _id: '',
             image: '',
             name: '',
             publicationDate: '',

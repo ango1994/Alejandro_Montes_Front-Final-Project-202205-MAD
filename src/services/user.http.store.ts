@@ -1,4 +1,5 @@
 import { iUser, userWithToken } from '../interfaces/iUser';
+import { getToken } from '../utils/getToken';
 
 export class UserHttpStore {
     apiUrl: string;
@@ -35,8 +36,14 @@ export class UserHttpStore {
         }).then((resp) => resp.json());
     }
 
-    updateUser(userId: string, comicId: string): Promise<iUser> {
+    addFavouriteComicToUser(userId: string, comicId: string): Promise<iUser> {
+        const token = getToken();
         return fetch(this.apiUrl + userId, {
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: 'Bearer ' + token.token,
+            },
             method: 'PATCH',
             body: JSON.stringify({ comic: comicId }),
         }).then((resp) => resp.json());

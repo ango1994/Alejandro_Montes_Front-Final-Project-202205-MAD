@@ -6,7 +6,7 @@ import styles from './register.module.css';
 
 export function Register() {
     const [formData, setFormData] = useState({
-        id: '',
+        _id: '',
         name: '',
         email: '',
         password: '',
