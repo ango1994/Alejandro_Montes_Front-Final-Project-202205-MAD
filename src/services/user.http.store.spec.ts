@@ -6,13 +6,18 @@ const user: iUser = {
     comics: [],
     email: '',
     password: '',
-    id: '',
+    _id: '',
 };
 
 const mockuserWithToken: userWithToken = {
     token: '',
     user: user,
 };
+
+jest.spyOn(Storage.prototype, 'getItem');
+Storage.prototype.getItem = jest
+    .fn()
+    .mockReturnValue({ user: { token: '88' } });
 
 describe('Given UserHttpStore', () => {
     describe('When registerUser is called', () => {
@@ -41,18 +46,19 @@ describe('Given UserHttpStore', () => {
                 json: jest.fn().mockResolvedValue({}),
             });
             const api = new UserHttpStore();
-            const response = await api.deleteUser(user.id, '');
+            const response = await api.deleteUser(user._id, '');
             expect(response).toEqual({});
         });
     });
     describe('When updateUser is called', () => {
-        test('Then it should update a user', async () => {
+        test('Then it should update a useree', async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 json: jest.fn().mockResolvedValue({ ...user, comics: [''] }),
             });
+
             const api = new UserHttpStore();
-            const response = await api.updateUser(user.id, '');
-            expect(response).toEqual({ ...user, comics: [''] });
+            await api.addFavouriteComicToUser(user._id, '');
+            expect(fetch).toBeCalled();
         });
     });
 });

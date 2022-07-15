@@ -36,14 +36,13 @@ export class UserHttpStore {
         }).then((resp) => resp.json());
     }
 
-    updateUser(userId: string, comicId: string): Promise<iUser> {
-        console.log(this.apiUrl + userId);
-        console.log(getToken());
+    addFavouriteComicToUser(userId: string, comicId: string): Promise<iUser> {
+        const token = getToken();
         return fetch(this.apiUrl + userId, {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
-                Authorization: 'Bearer ' + getToken().token,
+                Authorization: 'Bearer ' + token.token,
             },
             method: 'PATCH',
             body: JSON.stringify({ comic: comicId }),

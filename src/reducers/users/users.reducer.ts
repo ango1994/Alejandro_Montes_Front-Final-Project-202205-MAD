@@ -5,7 +5,6 @@ import { loadUserAction, updateUserAction } from './users.action.creators';
 const initialState: userWithToken = {
     token: '',
     user: {
-        id: '',
         _id: '',
         comics: [],
         email: '',
@@ -18,7 +17,7 @@ export const usersReducer = createReducer(initialState, (builder) => {
         .addCase(loadUserAction, (state, action) => action.payload)
         .addCase(updateUserAction, (state, action) => ({
             ...state,
-            user: action.payload,
+            user: action.payload.user,
         }))
         .addDefaultCase((state) => state);
 });

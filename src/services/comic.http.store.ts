@@ -10,7 +10,7 @@ export class ComicHttpStore {
         return fetch(this.apiUrl).then((resp) => resp.json());
     }
 
-    getComic(id: iComic['id']): Promise<iComic> {
+    getComic(id: iComic['_id']): Promise<iComic> {
         return fetch(this.apiUrl + id.toString()).then((resp) => resp.json());
     }
     getComicByName(name: iComic['name']): Promise<Array<iComic>> {

@@ -2,7 +2,6 @@ import { MemoryRouter } from 'react-router-dom';
 import { iArtist } from '../interfaces/iArtist';
 import { iComic } from '../interfaces/iComics';
 import { userWithToken } from '../interfaces/iUser';
-
 import { artistsReducer } from '../reducers/artists/artists.reducer';
 import { comicsReducer } from '../reducers/comics/comics.reducer';
 import { usersReducer } from '../reducers/users/users.reducer';
@@ -31,7 +30,7 @@ jest.mock('react-router-dom', () => ({
                 artist: [] as Array<iArtist>,
                 category: 'american',
                 description: '',
-                id: '',
+                _id: '',
                 image: '',
                 name: '',
                 publicationDate: '',

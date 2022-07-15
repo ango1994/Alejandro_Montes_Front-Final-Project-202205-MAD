@@ -7,17 +7,15 @@ import { iStore } from '../store/store';
 export function AddFavourite({ comic }: { comic: iComic }) {
     const dispatch = useDispatch();
     const user = useSelector((store: iStore) => store.user);
-    console.log(user.user._id);
-    console.log(comic._id);
 
     const handleClick = async () => {
         console.log(user.user._id);
         console.log(comic._id);
-        const response = await new UserHttpStore().updateUser(
-            user.user._id as string,
-            comic._id as string
+        const response = await new UserHttpStore().addFavouriteComicToUser(
+            user.user._id,
+            comic._id
         );
-        dispatch(updateUserAction(response));
+        dispatch(updateUserAction({ token: user.token, user: response }));
         localStorage.setItem(
             'user',
             JSON.stringify({ token: user.token, user: response })

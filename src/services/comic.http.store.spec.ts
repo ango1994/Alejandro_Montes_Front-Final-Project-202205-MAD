@@ -5,7 +5,7 @@ const comic1: iComic = {
     artist: [],
     category: 'american',
     description: '',
-    id: '',
+    _id: '',
     image: '',
     name: '',
     publicationDate: '',
@@ -15,7 +15,7 @@ const comic2: iComic = {
     artist: [],
     category: 'american',
     description: '',
-    id: '',
+    _id: '',
     image: '',
     name: '',
     publicationDate: '',
@@ -62,7 +62,7 @@ describe('Given ComicHttpStore', () => {
                 }),
             });
             const api = new ComicHttpStore();
-            const response = await api.scoreComic(comic1.id, 7);
+            const response = await api.scoreComic(comic1._id, 7);
 
             expect(response).toEqual({
                 ...comic1,
