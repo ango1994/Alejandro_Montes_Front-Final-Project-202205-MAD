@@ -12,7 +12,7 @@ export function European() {
                 {comics
                     .filter((comic) => comic.category === 'european')
                     .map((comic) => (
-                        <li className={styles.comic}>
+                        <li className={styles.comic} key={comic.id}>
                             <PicComic comic={comic}></PicComic>
                             <h3 className={styles.comicName}>{comic.name}</h3>
                         </li>
