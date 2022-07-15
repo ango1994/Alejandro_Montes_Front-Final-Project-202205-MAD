@@ -1,4 +1,5 @@
 import { iUser, userWithToken } from '../interfaces/iUser';
+import { getToken } from '../utils/getToken';
 
 export class UserHttpStore {
     apiUrl: string;
@@ -36,7 +37,14 @@ export class UserHttpStore {
     }
 
     updateUser(userId: string, comicId: string): Promise<iUser> {
+        console.log(this.apiUrl + userId);
+        console.log(getToken());
         return fetch(this.apiUrl + userId, {
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: 'Bearer ' + getToken().token,
+            },
             method: 'PATCH',
             body: JSON.stringify({ comic: comicId }),
         }).then((resp) => resp.json());

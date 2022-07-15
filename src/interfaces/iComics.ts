@@ -2,6 +2,7 @@ import { iArtist } from './iArtist';
 
 export interface iComic {
     id: string;
+    _id?: string;
     name: string;
     image: string;
     description: string;

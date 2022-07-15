@@ -6,6 +6,7 @@ const initialState: userWithToken = {
     token: '',
     user: {
         id: '',
+        _id: '',
         comics: [],
         email: '',
         name: '',
@@ -15,6 +16,9 @@ const initialState: userWithToken = {
 export const usersReducer = createReducer(initialState, (builder) => {
     return builder
         .addCase(loadUserAction, (state, action) => action.payload)
-        .addCase(updateUserAction, (state, action) => (state = action.payload))
+        .addCase(updateUserAction, (state, action) => ({
+            ...state,
+            user: action.payload,
+        }))
         .addDefaultCase((state) => state);
 });
