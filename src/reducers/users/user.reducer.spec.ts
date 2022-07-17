@@ -1,4 +1,5 @@
 import { AnyAction } from '@reduxjs/toolkit';
+import { iComic } from '../../interfaces/iComics';
 import { userWithToken } from '../../interfaces/iUser';
 import { loadUserAction, updateUserAction } from './users.action.creators';
 import { usersReducer } from './users.reducer';
@@ -38,7 +39,7 @@ describe('Given userReducer', () => {
                 updateUserAction({
                     ...user,
                     user: {
-                        comics: [''],
+                        comics: [{} as iComic],
                         email: '',
                         _id: '',
                         name: '',
@@ -46,7 +47,7 @@ describe('Given userReducer', () => {
                     },
                 })
             );
-            expect(newState.user.comics).toEqual(['']);
+            expect(newState.user.comics).toEqual([{}]);
         });
     });
     describe('When calling default it with a non existing action', () => {
