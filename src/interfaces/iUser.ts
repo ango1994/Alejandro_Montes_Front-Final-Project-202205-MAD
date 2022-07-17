@@ -1,3 +1,5 @@
+import { iComic } from './iComics';
+
 export interface userWithToken {
     token: string;
     user: iUser;
@@ -7,5 +9,5 @@ export interface iUser {
     name: string;
     email: string;
     password: string;
-    comics?: Array<string>;
+    comics?: Array<iComic>;
 }

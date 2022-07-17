@@ -41,7 +41,7 @@ export class UserHttpStore {
         return fetch(this.apiUrl + userId, {
             headers: {
                 'Content-Type': 'application/json',
-                Accept: 'application/json',
+
                 Authorization: 'Bearer ' + token.token,
             },
             method: 'PATCH',
