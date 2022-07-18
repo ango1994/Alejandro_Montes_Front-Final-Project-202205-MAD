@@ -4,8 +4,9 @@
 
 .container {
     display: flex;
-    background-color: white;
-    width: 400px;
-    justify-content: start;
-    color: black;
+    background-color: rgb(41, 41, 41);
+    width: 395px;
+    justify-content: flex-start;
+    color: white;
+    padding: 5px 10px;
 }
