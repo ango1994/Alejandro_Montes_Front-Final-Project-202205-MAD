@@ -1,7 +1,10 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { iStore } from '../../store/store';
 import styles from './menu.module.css';
 
 export function Menu({ menu }: { menu: Function }) {
+    const user = useSelector((store: iStore) => store.user.token);
     const handleClick = () => {
         menu();
     };
@@ -45,13 +48,17 @@ export function Menu({ menu }: { menu: Function }) {
                 <button onClick={handleClick} className={styles.close}>
                     close
                 </button>
-                <Link
-                    to={'/login'}
-                    className={styles.login}
-                    onClick={handleClick}
-                >
-                    login
-                </Link>
+                {!user ? (
+                    <Link
+                        to={'/login'}
+                        className={styles.login}
+                        onClick={handleClick}
+                    >
+                        login
+                    </Link>
+                ) : (
+                    <p className={styles.login}>delete account</p>
+                )}
             </div>
         </div>
     );

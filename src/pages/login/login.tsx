@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loadUserAction } from '../../reducers/users/users.action.creators';
 import { UserHttpStore } from '../../services/user.http.store';
 import Swal from 'sweetalert2';
@@ -63,6 +63,9 @@ export function Login() {
                     onChange={handleChange}
                     placeholder="Password"
                 />
+                <Link to={'/register'} className={styles.register}>
+                    Not account yet?
+                </Link>
                 <button type="submit" className={styles.sendButton}>
                     Send
                 </button>
