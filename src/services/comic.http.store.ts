@@ -1,4 +1,5 @@
 import { iComic } from '../interfaces/iComics';
+import { getToken } from '../utils/getToken';
 
 export class ComicHttpStore {
     apiUrl: string;
@@ -19,11 +20,14 @@ export class ComicHttpStore {
         );
     }
     scoreComic(comicId: string, score: number): Promise<iComic> {
-        return fetch(this.apiUrl + 'score' + comicId, {
+        const token = getToken();
+
+        return fetch(this.apiUrl + 'score/' + comicId, {
             method: 'PATCH',
             body: JSON.stringify({ score: score }),
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token.token,
             },
         }).then((resp) => resp.json());
     }
