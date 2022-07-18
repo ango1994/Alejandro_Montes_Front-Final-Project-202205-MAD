@@ -1,23 +1,21 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
-import { iComic } from '../interfaces/iComics';
+import { SyntheticEvent, useEffect, useMemo, useState } from 'react';
+
 import { ComicHttpStore } from '../services/comic.http.store';
 import styles from './search.module.css';
 
-export function Search() {
+export function Search({ setResponse }: { setResponse: Function }) {
     const [searchData, setSearchData] = useState('');
-    const [response, setResponse] = useState([] as Array<iComic>);
+    const apiComics = useMemo(() => new ComicHttpStore(), []);
 
     useEffect(() => {
         if (searchData.length >= 3) {
-            searchPrint(searchData).then((resp) => setResponse(resp));
+            apiComics
+                .getComicByName(searchData)
+                .then((resp) => setResponse(resp));
         } else {
             setResponse([]);
         }
-    }, [searchData]);
-
-    async function searchPrint(search: string) {
-        return new ComicHttpStore().getComicByName(search);
-    }
+    }, [apiComics, searchData, setResponse]);
 
     const handleChange = async (ev: SyntheticEvent) => {
         const element = ev.target as HTMLFormElement;
@@ -25,8 +23,8 @@ export function Search() {
     };
 
     return (
-        <>
-            <form>
+        <div>
+            <form autoComplete="off">
                 <input
                     className={styles.input}
                     type="text"
@@ -37,7 +35,6 @@ export function Search() {
                     onChange={handleChange}
                 />
             </form>
-            {response ? response.map((comic) => <p>{comic.name}</p>) : ''}
-        </>
+        </div>
     );
 }

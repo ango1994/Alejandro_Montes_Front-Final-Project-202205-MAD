@@ -1,0 +1,23 @@
+.comicImg {
+    height: 70px;
+}
+
+.container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.438);
+    width: 395px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 15px;
+    mix-blend-mode: exclusion;
+}
+.comicName {
+    padding-left: 20px;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+.link {
+    text-decoration: none;
+}
