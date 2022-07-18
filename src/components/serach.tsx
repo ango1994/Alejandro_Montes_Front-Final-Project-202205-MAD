@@ -2,6 +2,7 @@ import { SyntheticEvent, useEffect, useState } from 'react';
 import { iComic } from '../interfaces/iComics';
 import { ComicHttpStore } from '../services/comic.http.store';
 import styles from './search.module.css';
+import { SearchResults } from './search.results.component';
 
 export function Search() {
     const [searchData, setSearchData] = useState('');
@@ -37,7 +38,7 @@ export function Search() {
                     onChange={handleChange}
                 />
             </form>
-            {response ? response.map((comic) => <p>{comic.name}</p>) : ''}
+            {response ? <SearchResults comics={response}></SearchResults> : ''}
         </>
     );
 }

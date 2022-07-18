@@ -1,0 +1,11 @@
+.comicImg {
+    height: 50px;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    width: 400px;
+    justify-content: start;
+    color: black;
+}
