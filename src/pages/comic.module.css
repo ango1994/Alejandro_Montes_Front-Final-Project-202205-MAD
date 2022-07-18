@@ -1,3 +1,47 @@
 .img {
-    height: 500px;
+    height: 400px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 60px;
+}
+
+.info {
+    padding: 0px 200px;
+}
+.description {
+    padding-top: 20px;
+}
+
+.infoLow {
+    display: flex;
+    padding-top: 20px;
+}
+
+.date {
+    padding-right: 40px;
+}
+
+.artist {
+    padding: 0px 40px;
+}
+
+.score {
+    position: absolute;
+    z-index: 1;
+    margin-left: -3rem;
+    margin-top: 23rem;
+    color: #101010;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    padding-top: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.5rem;
 }

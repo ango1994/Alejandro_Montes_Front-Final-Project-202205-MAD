@@ -1,0 +1,13 @@
+.select {
+    appearance: none;
+    background-color: transparent;
+    border: white;
+    text-align: center;
+    margin-left: 20px;
+    width: 50px;
+    font-family: 'PPNeueMontreal';
+    font-weight: bold;
+    cursor: pointer;
+    line-height: inherit;
+    color: white;
+}
