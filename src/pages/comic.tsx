@@ -29,9 +29,10 @@ export function Comic() {
     };
 
     return (
-        <div>
+        <div className={styles.main}>
+            <div className={styles.headerSpace}></div>
             <div className={styles.container}>
-                <div>
+                <div className={styles.containerLeft}>
                     <img
                         src={props.comic.image}
                         alt=""
@@ -46,6 +47,14 @@ export function Comic() {
                         {props.comic.description}
                     </p>
                     <div className={styles.infoLow}>
+                        <div className={styles.yourScore}>
+                            <h3>Your score</h3>
+                            {findComic && user.token ? (
+                                <Score comic={findComic}></Score>
+                            ) : (
+                                ''
+                            )}
+                        </div>
                         <div className={styles.date}>
                             <h3>Publication Date</h3>
                             <p>{props.comic.publicationDate}</p>
@@ -60,14 +69,6 @@ export function Comic() {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div>
-                {findComic && user.token ? (
-                    <Score comic={findComic}></Score>
-                ) : (
-                    ''
-                )}
             </div>
         </div>
     );

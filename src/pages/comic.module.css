@@ -1,46 +1,72 @@
+.headerSpace {
+    height: 200px;
+}
+
 .img {
     height: 400px;
+    margin-right: 80px;
 }
 
 .container {
-    display: flex;
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
     margin: 0px 60px;
+    margin-bottom: 300px;
+    align-items: stretch;
+}
+
+.containerLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .info {
-    padding: 0px 200px;
+    height: auto;
+    padding-right: 147px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .description {
     padding-top: 20px;
+    font-size: 1.5rem;
 }
 
 .infoLow {
     display: flex;
+    justify-content: space-between;
     padding-top: 20px;
 }
 
 .date {
-    padding-right: 40px;
+    padding: 0px 40px;
+}
+
+.yourScore {
+    padding: 0px 40px 0px 0px;
 }
 
 .artist {
-    padding: 0px 40px;
+    padding: 0px 0px 0px 40px;
 }
 
 .score {
     position: absolute;
     z-index: 1;
-    margin-left: -3rem;
-    margin-top: 23rem;
+    margin-right: -15rem;
+    margin-top: 30rem;
     color: #101010;
     display: inline-block;
     background-color: white;
     text-align: center;
-    padding-top: 10px;
-    height: 50px;
-    width: 50px;
+    padding-top: 20px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     font-weight: bold;
     font-size: 1.5rem;

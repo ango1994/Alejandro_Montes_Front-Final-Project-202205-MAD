@@ -12,7 +12,7 @@ export function Layout({
 }) {
     const template = (
         <>
-            {/* <Header /> */}
+            <Header />
             <main>{children}</main>
             <Footer menuOptions={menuOptions} />
         </>

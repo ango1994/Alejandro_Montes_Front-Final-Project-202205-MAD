@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { iComic } from '../interfaces/iComics';
 import { updateComicsAction } from '../reducers/comics/comics.action.creators';
@@ -11,22 +11,23 @@ export function Score({ comic }: { comic: iComic }) {
     const user = useSelector((store: iStore) => store.user);
     const dispatcher = useDispatch();
 
+    const scoreComic = useCallback(
+        async (scored: number) => {
+            return new ComicHttpStore().scoreComic(comic._id, scored);
+        },
+        [comic._id]
+    );
+
     useEffect(() => {
-        if (score !== -1) {
-            scoreComic(score).then((comic) =>
-                dispatcher(updateComicsAction(comic))
-            );
-            findAlreadyVoted(comic, user.user._id);
-        }
-    });
+        scoreComic(score).then((comic) =>
+            dispatcher(updateComicsAction(comic))
+        );
+        findAlreadyVoted(comic, user.user._id);
+    }, [dispatcher, score, scoreComic, user.user._id]);
 
     const findAlreadyVoted = (comic: iComic, userId: string) => {
         return comic.score.find((user) => user.user === userId);
     };
-
-    async function scoreComic(scored: number) {
-        return new ComicHttpStore().scoreComic(comic._id, scored);
-    }
 
     const handleChange = (ev: SyntheticEvent) => {
         const element = ev.target as HTMLFormElement;
