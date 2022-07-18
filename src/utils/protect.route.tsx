@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 // import { Navigate, useNavigate } from 'react-router-dom';
-import Login from '../pages/login';
+import Login from '../pages/login/login';
 
 export const ProtectedRoute = ({
     token,

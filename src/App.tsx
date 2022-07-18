@@ -4,7 +4,7 @@ import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Layout } from './components/layout';
+import { Layout } from './components/layout/layout';
 import { iRouterItem } from './interfaces/iRouterItem';
 import { loadArtistsAction } from './reducers/artists/artists.action.creators';
 import { loadComicsAction } from './reducers/comics/comics.action.creators';
@@ -33,17 +33,19 @@ function App() {
         }
     }, [apiArtsits, apiComics, dispatcher]);
 
-    const HomePage = React.lazy(() => import('./pages/home'));
-    const CategoriesPage = React.lazy(() => import('./pages/categories'));
-    const ArtistsPage = React.lazy(() => import('./pages/artists'));
-    const ArtistPage = React.lazy(() => import('./pages/artist'));
-    const MyComixPage = React.lazy(() => import('./pages/mycomix'));
-    const LoginPage = React.lazy(() => import('./pages/login'));
-    const RegisterPage = React.lazy(() => import('./pages/register'));
-    const AmericanPage = React.lazy(() => import('./pages/american'));
-    const EuropeanPage = React.lazy(() => import('./pages/european'));
-    const MangaPage = React.lazy(() => import('./pages/manga'));
-    const ComicPage = React.lazy(() => import('./pages/comic'));
+    const HomePage = React.lazy(() => import('./pages/home/home'));
+    const CategoriesPage = React.lazy(
+        () => import('./pages/categories/categories')
+    );
+    const ArtistsPage = React.lazy(() => import('./pages/artists/artists'));
+    const ArtistPage = React.lazy(() => import('./pages/artist/artist'));
+    const MyComixPage = React.lazy(() => import('./pages/mycomix/mycomix'));
+    const LoginPage = React.lazy(() => import('./pages/login/login'));
+    const RegisterPage = React.lazy(() => import('./pages/register/register'));
+    const AmericanPage = React.lazy(() => import('./pages/american/american'));
+    const EuropeanPage = React.lazy(() => import('./pages/european/european'));
+    const MangaPage = React.lazy(() => import('./pages/manga/manga'));
+    const ComicPage = React.lazy(() => import('./pages/comic/comic'));
 
     const routerOptions: Array<iRouterItem> = [
         { path: '/home', label: 'Home', page: <HomePage></HomePage> },
