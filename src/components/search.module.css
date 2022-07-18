@@ -1,0 +1,28 @@
+.input {
+    border: none;
+    width: 394px;
+    height: 56px;
+
+    background-color: #101010;
+    color: white;
+    font-family: 'PPNeueMontreal';
+    font-weight: lighter;
+    font-size: 25px;
+    border-bottom: solid white 1px;
+    outline: none;
+}
+.input:focus {
+    border-bottom: solid white 1px;
+    outline: none;
+}
+
+.input::placeholder {
+    color: white;
+    font-family: 'PPNeueMontreal';
+    font-weight: lighter;
+    font-size: 25 px;
+}
+
+.input:focus::placeholder {
+    color: transparent;
+}
