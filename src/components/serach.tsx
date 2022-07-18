@@ -23,8 +23,8 @@ export function Search({ setResponse }: { setResponse: Function }) {
     };
 
     return (
-        <>
-            <form>
+        <div>
+            <form autoComplete="off">
                 <input
                     className={styles.input}
                     type="text"
@@ -35,6 +35,6 @@ export function Search({ setResponse }: { setResponse: Function }) {
                     onChange={handleChange}
                 />
             </form>
-        </>
+        </div>
     );
 }

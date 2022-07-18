@@ -9,7 +9,7 @@ interface props {
 export function Category(props: props) {
     return (
         <div className={styles.container}>
-            <Link to={props.name}>
+            <Link to={props.name} className={styles.link}>
                 <img
                     className={styles.image}
                     src={props.img}

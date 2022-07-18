@@ -19,17 +19,18 @@ export function Header() {
     return (
         <>
             {menu ? <Menu menu={toggleMenu}></Menu> : ''}
-            <div className={styles.search}>
-                <Search setResponse={setResponseProps}></Search>
-                {response ? (
-                    <SearchResults comics={response}></SearchResults>
-                ) : (
-                    ''
-                )}
+            <div className={styles.searchContainer}>
+                <div className={styles.searchOnHeader}>
+                    <Search setResponse={setResponseProps}></Search>
+                    {response ? (
+                        <SearchResults comics={response}></SearchResults>
+                    ) : (
+                        ''
+                    )}
+                </div>
             </div>
             <div className={styles.header}>
                 <p className={styles.comix}>comix</p>
-
                 <button onClick={toggleMenu} className={styles.menu}>
                     menu
                 </button>
