@@ -9,7 +9,6 @@ import styles from './comic.module.css';
 export function Comic() {
     const location = useLocation();
     const props = location.state as { comic: iComic };
-
     const comics = useSelector((store: iStore) => store.comics);
     const user = useSelector((store: iStore) => store.user);
 

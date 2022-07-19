@@ -3,25 +3,24 @@ import { iArtist } from '../../interfaces/iArtist';
 import { iComic } from '../../interfaces/iComics';
 import { userWithToken } from '../../interfaces/iUser';
 import { artistsReducer } from '../../reducers/artists/artists.reducer';
-import { comicDisplayReducer } from '../../reducers/comic.display/comic.display.reducer';
 import { comicsReducer } from '../../reducers/comics/comics.reducer';
 import { usersReducer } from '../../reducers/users/users.reducer';
 import { iStore } from '../../store/store';
-import { render, screen } from '../../utils/test.utils';
-import Manga from './manga';
+import { fireEvent, render, screen } from '../../utils/test.utils';
+import { Search } from './search';
 
 const reducer = {
     comics: comicsReducer,
     artists: artistsReducer,
     user: usersReducer,
-    comicDisplay: comicDisplayReducer,
+    comicDisplay: comicsReducer,
 };
 
 const preloadedState: iStore = {
     comics: [
         {
             artist: [] as Array<iArtist>,
-            category: 'manga',
+            category: 'american',
             description: '',
             _id: '',
             image: '',
@@ -33,19 +32,36 @@ const preloadedState: iStore = {
     user: {} as userWithToken,
     comicDisplay: {} as iComic,
 };
-describe('Given the component Manga', () => {
+
+describe('Given the component Search', () => {
     describe('When it is called', () => {
-        test('Then it should render the manga page', () => {
+        test('Then it should print the component', () => {
             render(
                 <BrowserRouter>
-                    <Manga></Manga>
+                    <Search setResponse={() => {}}></Search>
                 </BrowserRouter>,
                 {
                     preloadedState,
                     reducer,
                 }
             );
-            const element = screen.getByText(/Manga/i);
+            const element = screen.getByRole('textbox');
+            expect(element).toBeInTheDocument();
+        });
+    });
+    describe('When it is called and textbox is filled', () => {
+        test('Then it should print the component', () => {
+            render(
+                <BrowserRouter>
+                    <Search setResponse={() => {}}></Search>
+                </BrowserRouter>,
+                {
+                    preloadedState,
+                    reducer,
+                }
+            );
+            const element = screen.getByRole('textbox');
+            fireEvent.change(element, { target: { value: 'test' } });
             expect(element).toBeInTheDocument();
         });
     });

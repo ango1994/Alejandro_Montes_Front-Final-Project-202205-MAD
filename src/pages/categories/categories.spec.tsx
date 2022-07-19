@@ -13,12 +13,14 @@ const reducer = {
     comics: comicsReducer,
     artists: artistsReducer,
     user: usersReducer,
+    comicDisplay: comicsReducer,
 };
 
 const preloadedState: iStore = {
     comics: [] as Array<iComic>,
     artists: [] as Array<iArtist>,
     user: {} as userWithToken,
+    comicDisplay: {} as iComic,
 };
 describe('Given the component Header', () => {
     describe('When it is called', () => {

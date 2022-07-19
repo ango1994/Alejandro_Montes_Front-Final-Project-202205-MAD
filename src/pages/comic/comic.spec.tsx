@@ -9,17 +9,20 @@ import { iStore } from '../../store/store';
 import Comic from './comic';
 
 import { render, screen } from '../../utils/test.utils';
+import { comicDisplayReducer } from '../../reducers/comic.display/comic.display.reducer';
 
 const reducer = {
     comics: comicsReducer,
     artists: artistsReducer,
     user: usersReducer,
+    comicDisplay: comicDisplayReducer,
 };
 
 const preloadedState: iStore = {
     comics: [] as Array<iComic>,
     artists: [] as Array<iArtist>,
     user: { token: '' } as userWithToken,
+    comicDisplay: {} as iComic,
 };
 
 jest.mock('react-router-dom', () => ({
