@@ -1,49 +1,54 @@
-import { SyntheticEvent, useEffect, useMemo, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { iComic } from '../../interfaces/iComics';
-import { updateComicsAction } from '../../reducers/comics/comics.action.creators';
+import {
+    loadComicDisplayAction,
+    unloadComicDisplayAction,
+} from '../../reducers/comic.display/comic.display.action.creators';
 import { ComicHttpStore } from '../../services/comic.http.store';
 import { iStore } from '../../store/store';
+
 import styles from './score.module.css';
 
 export function Score({ comic }: { comic: iComic }) {
-    const [score, setScore] = useState(-1);
-    const [alreadyVoted, setAlreadyVoted] = useState(-1);
-    const user = useSelector((store: iStore) => store.user);
+    const [state, setState] = useState(-1);
     const dispatcher = useDispatch();
-    const apiComics = useMemo(() => new ComicHttpStore(), []);
+    const user = useSelector((store: iStore) => store.user);
 
     useEffect(() => {
-        const foundScore = findAlreadyVoted(comic, user.user._id);
-        if (foundScore) {
-            setAlreadyVoted(foundScore?.scored);
-            setScore(foundScore?.scored);
+        dispatcher(unloadComicDisplayAction(comic));
+        dispatcher(loadComicDisplayAction(comic));
+    }, [comic, dispatcher]);
+
+    const comicInStore = useSelector((store: iStore) => store.comicDisplay);
+
+    useEffect(() => {
+        function findAlreadyVoted() {
+            return comicInStore.score.find(
+                (item) => item.user === user.user._id
+            );
         }
-    }, [comic, user.user._id]);
+        if (comicInStore._id) {
+            const display = findAlreadyVoted();
+            display?.scored ? setState(display?.scored) : setState(-1);
+            console.log({ display });
+        }
+    }, [comicInStore._id, comicInStore.score, user.user._id]);
 
-    useEffect(() => {
-        apiComics
-            .scoreComic(comic._id, score)
-            .then((comic) => dispatcher(updateComicsAction(comic)));
-    }, [apiComics, comic._id, dispatcher, score]);
-
-    const findAlreadyVoted = (comic: iComic, userId: string) => {
-        return comic.score.find((user) => user.user === userId);
-    };
-
-    const handleChange = (ev: SyntheticEvent) => {
+    async function handleChange(ev: SyntheticEvent) {
         const element = ev.target as HTMLFormElement;
-        setScore(element.value);
-    };
-
+        await new ComicHttpStore()
+            .scoreComic(comicInStore._id, element.value)
+            .then((comic) => dispatcher(loadComicDisplayAction(comic)));
+    }
     return (
         <div>
             <select
                 className={styles.select}
                 name=""
                 id=""
+                value={state}
                 onChange={handleChange}
-                value={alreadyVoted}
             >
                 <option value="-1">No leído</option>
                 <option value="1">1</option>

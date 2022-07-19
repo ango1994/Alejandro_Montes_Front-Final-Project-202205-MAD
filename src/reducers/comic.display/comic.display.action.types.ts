@@ -1,4 +1,4 @@
 export enum actionTypes {
-    'comic@unload' = 'comic@unload',
-    'comic@load' = 'comic@load',
+    'comic@unloadComicDisplay' = 'comic@unloadComicDisplay',
+    'comic@loadComicDisplay' = 'comic@loadComicDisplay',
 }

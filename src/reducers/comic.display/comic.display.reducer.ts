@@ -18,9 +18,6 @@ const initialState: iComic = {
 export const comicDisplayReducer = createReducer(initialState, (builder) => {
     return builder
         .addCase(loadComicDisplayAction, (state, action) => action.payload)
-        .addCase(
-            unloadComicDisplayAction,
-            (state, action) => (state = initialState)
-        )
+        .addCase(unloadComicDisplayAction, (state) => (state = initialState))
         .addDefaultCase((state) => state);
 });

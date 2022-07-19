@@ -8,8 +8,8 @@ export interface iAction {
 }
 
 export const loadComicDisplayAction = createAction<iComic>(
-    actionTypes['comic@load']
+    actionTypes['comic@loadComicDisplay']
 );
 export const unloadComicDisplayAction = createAction<iComic>(
-    actionTypes['comic@unload']
+    actionTypes['comic@unloadComicDisplay']
 );
