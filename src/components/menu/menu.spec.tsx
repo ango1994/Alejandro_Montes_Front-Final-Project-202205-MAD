@@ -1,3 +1,4 @@
+import { MemoryRouter } from 'react-router-dom';
 import { iArtist } from '../../interfaces/iArtist';
 import { iComic } from '../../interfaces/iComics';
 import { userWithToken } from '../../interfaces/iUser';
@@ -23,24 +24,54 @@ const mockFunction = jest.fn();
 describe('Given the component Menu', () => {
     describe('When it is called', () => {
         test('Then it should render the menu', () => {
-            render(<Menu menu={mockFunction}></Menu>, {
-                preloadedState,
-                reducer,
-            });
+            render(
+                <MemoryRouter>
+                    <Menu menu={mockFunction}></Menu>
+                </MemoryRouter>,
+                {
+                    preloadedState,
+                    reducer,
+                }
+            );
             const element = screen.getByText(/close/i);
             expect(element).toBeInTheDocument();
         });
     });
     describe('When it is called and button close is clicked', () => {
         test('Then it should call the mocked function funciton', async () => {
-            render(<Menu menu={mockFunction}></Menu>, {
-                preloadedState,
-                reducer,
-            });
-            const button = screen.getByText('CLOSE');
+            render(
+                <MemoryRouter>
+                    <Menu menu={mockFunction}></Menu>
+                </MemoryRouter>,
+                {
+                    preloadedState,
+                    reducer,
+                }
+            );
+            const button = screen.getByText('close');
             fireEvent.click(button);
 
             expect(mockFunction).toHaveBeenCalled();
+        });
+    });
+    describe('When it is called and user is  logged in', () => {
+        test('Then it delete account should be rendered', async () => {
+            const preloadedState: iStore = {
+                comics: [] as Array<iComic>,
+                artists: [] as Array<iArtist>,
+                user: { token: 'test', user: {} } as userWithToken,
+            };
+            render(
+                <MemoryRouter>
+                    <Menu menu={mockFunction}></Menu>
+                </MemoryRouter>,
+                {
+                    preloadedState,
+                    reducer,
+                }
+            );
+            const element = screen.getByText(/delete/i);
+            expect(element).toBeInTheDocument();
         });
     });
 });
