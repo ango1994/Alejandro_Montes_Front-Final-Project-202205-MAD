@@ -51,7 +51,7 @@ describe('Given UserHttpStore', () => {
         });
     });
     describe('When updateUser is called', () => {
-        test('Then it should update a useree', async () => {
+        test('Then it should update a user', async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 json: jest.fn().mockResolvedValue({ ...user, comics: [''] }),
             });
