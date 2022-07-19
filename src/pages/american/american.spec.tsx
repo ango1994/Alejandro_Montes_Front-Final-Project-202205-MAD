@@ -13,6 +13,7 @@ const reducer = {
     comics: comicsReducer,
     artists: artistsReducer,
     user: usersReducer,
+    comicDisplay: comicsReducer,
 };
 
 const preloadedState: iStore = {
@@ -29,6 +30,7 @@ const preloadedState: iStore = {
     ] as Array<iComic>,
     artists: [] as Array<iArtist>,
     user: {} as userWithToken,
+    comicDisplay: {} as iComic,
 };
 describe('Given the component American', () => {
     describe('When it is called', () => {
