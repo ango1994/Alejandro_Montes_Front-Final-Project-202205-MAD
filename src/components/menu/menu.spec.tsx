@@ -54,4 +54,24 @@ describe('Given the component Menu', () => {
             expect(mockFunction).toHaveBeenCalled();
         });
     });
+    describe('When it is called and user is  logged in', () => {
+        test('Then it delete account should be rendered', async () => {
+            const preloadedState: iStore = {
+                comics: [] as Array<iComic>,
+                artists: [] as Array<iArtist>,
+                user: { token: 'test', user: {} } as userWithToken,
+            };
+            render(
+                <MemoryRouter>
+                    <Menu menu={mockFunction}></Menu>
+                </MemoryRouter>,
+                {
+                    preloadedState,
+                    reducer,
+                }
+            );
+            const element = screen.getByText(/delete/i);
+            expect(element).toBeInTheDocument();
+        });
+    });
 });
