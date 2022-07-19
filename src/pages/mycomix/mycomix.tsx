@@ -15,7 +15,7 @@ export function MyComix() {
                           <p className={styles.name}>{comic.name}</p>
                       </>
                   ))
-                : ''}
+                : 'No comics found'}
         </div>
     );
 }
