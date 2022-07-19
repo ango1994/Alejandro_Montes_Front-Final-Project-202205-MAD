@@ -28,12 +28,12 @@ export function Score({ comic }: { comic: iComic }) {
                 (item) => item.user === user.user._id
             );
         }
-        if (comicInStore._id) {
+        if (comicInStore) {
             const display = findAlreadyVoted();
             display?.scored ? setState(display?.scored) : setState(-1);
             console.log({ display });
         }
-    }, [comicInStore._id, comicInStore.score, user.user._id]);
+    }, [comicInStore, comicInStore._id, comicInStore.score, user.user._id]);
 
     async function handleChange(ev: SyntheticEvent) {
         const element = ev.target as HTMLFormElement;
@@ -45,7 +45,7 @@ export function Score({ comic }: { comic: iComic }) {
         <div>
             <select
                 className={styles.select}
-                name=""
+                name="score"
                 id=""
                 value={state}
                 onChange={handleChange}
