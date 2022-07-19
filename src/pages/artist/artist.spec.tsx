@@ -41,7 +41,7 @@ const preloadedState: iStore = {
 };
 describe('Given the component Artist', () => {
     describe('When it is called', () => {
-        test.skip('Then it should render the artist page', () => {
+        test('Then it should render the artist page', () => {
             render(
                 <BrowserRouter>
                     <Artist></Artist>

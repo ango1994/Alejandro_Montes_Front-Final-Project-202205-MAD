@@ -9,8 +9,6 @@ export function AddFavourite({ comic }: { comic: iComic }) {
     const user = useSelector((store: iStore) => store.user);
 
     const handleClick = async () => {
-        console.log(user.user._id);
-        console.log(comic._id);
         const response = await new UserHttpStore().addFavouriteComicToUser(
             user.user._id,
             comic._id
