@@ -8,9 +8,18 @@ import styles from './score.module.css';
 
 export function Score({ comic }: { comic: iComic }) {
     const [score, setScore] = useState(-1);
+    const [alreadyVoted, setAlreadyVoted] = useState(-1);
     const user = useSelector((store: iStore) => store.user);
     const dispatcher = useDispatch();
     const apiComics = useMemo(() => new ComicHttpStore(), []);
+
+    useEffect(() => {
+        const foundScore = findAlreadyVoted(comic, user.user._id);
+        if (foundScore) {
+            setAlreadyVoted(foundScore?.scored);
+            setScore(foundScore?.scored);
+        }
+    }, [comic, user.user._id]);
 
     useEffect(() => {
         apiComics
@@ -34,11 +43,7 @@ export function Score({ comic }: { comic: iComic }) {
                 name=""
                 id=""
                 onChange={handleChange}
-                defaultValue={
-                    findAlreadyVoted(comic, user.user._id)
-                        ? findAlreadyVoted(comic, user.user._id)?.scored
-                        : -1
-                }
+                value={alreadyVoted}
             >
                 <option value="-1">No leído</option>
                 <option value="1">1</option>

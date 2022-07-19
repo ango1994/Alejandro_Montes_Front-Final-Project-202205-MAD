@@ -1,7 +1,55 @@
 .menu {
-    background-color: aqua;
+    background-color: #101010;
     width: 100%;
     height: 100vh;
     position: fixed;
+    display: flex;
+    justify-content: space-between;
     z-index: 10;
+}
+
+.navigation {
+    margin-top: 20px;
+    font-size: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.navItem {
+    font-family: 'PPNeueMontreal';
+    margin: 5px 79px;
+    width: fit-content;
+    color: white;
+    text-decoration: none;
+}
+
+.menuRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.close {
+    font-size: 41px;
+    margin: 69px 79px;
+    z-index: 30;
+    background: none;
+    border: none;
+    font-family: 'PPNeueMontreal';
+    font-weight: lighter;
+    cursor: pointer;
+    color: white;
+}
+
+.login {
+    font-size: 2rem;
+    margin: 69px 79px;
+    color: white;
+    text-decoration: none;
+}
+
+.small {
+    width: fit-content;
+    font-size: 1rem;
 }

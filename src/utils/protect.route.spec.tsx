@@ -17,9 +17,9 @@ const reducer = {
 };
 
 const preloadedState: iStore = {
-    comics: [] as Array<iComic>,
+    comics: [{}] as Array<iComic>,
     artists: [] as Array<iArtist>,
-    user: { token: '' } as userWithToken,
+    user: { token: '', user: { comics: [{}, {}] } } as userWithToken,
 };
 
 export function MockTemplate() {
@@ -52,7 +52,6 @@ describe('Given the componen ProtectRoute', () => {
                 { preloadedState, reducer }
             );
             const element = screen.getByText('Send');
-            expect(element).toBeInTheDocument();
             expect(element).toBeInTheDocument();
         });
     });
