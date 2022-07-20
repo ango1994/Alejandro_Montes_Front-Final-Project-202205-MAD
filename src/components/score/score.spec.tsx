@@ -18,16 +18,16 @@ const reducer = {
     comicDisplay: comicDisplayReducer,
 };
 
-const mockComic: iComic = {
-    _id: '',
-    image: 'test',
-    name: 'test',
-    artist: [] as Array<iArtist>,
-    category: 'american',
-    description: '',
-    publicationDate: '',
-    score: [],
-};
+// const mockComic: iComic = {
+//     _id: '',
+//     image: 'test',
+//     name: 'test',
+//     artist: [] as Array<iArtist>,
+//     category: 'american',
+//     description: '',
+//     publicationDate: '',
+//     score: [],
+// };
 
 const preloadedState: iStore = {
     comics: [] as Array<iComic>,
@@ -53,7 +53,7 @@ describe('Given the component Score', () => {
         test('Then it should render the selector', () => {
             render(
                 <BrowserRouter>
-                    <Score comic={mockComic}></Score>
+                    <Score></Score>
                 </BrowserRouter>,
                 {
                     preloadedState,
@@ -72,7 +72,7 @@ describe('Given the component Score', () => {
 
             render(
                 <BrowserRouter>
-                    <Score comic={mockComic}></Score>
+                    <Score></Score>
                 </BrowserRouter>,
                 {
                     preloadedState,

@@ -1,46 +1,26 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { iComic } from '../../interfaces/iComics';
-import {
-    loadComicDisplayAction,
-    unloadComicDisplayAction,
-} from '../../reducers/comic.display/comic.display.action.creators';
+import { updateComicsAction } from '../../reducers/comics/comics.action.creators';
 import { ComicHttpStore } from '../../services/comic.http.store';
 import { iStore } from '../../store/store';
-
 import styles from './score.module.css';
 
-export function Score({ comic }: { comic: iComic }) {
-    const [state, setState] = useState(-1);
-    const dispatcher = useDispatch();
+export function Score() {
+    const displayComic = useSelector((store: iStore) => store.comicDisplay);
     const user = useSelector((store: iStore) => store.user);
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatcher(unloadComicDisplayAction(comic));
-        dispatcher(loadComicDisplayAction(comic));
-    }, [comic, dispatcher]);
-
-    const comicInStore = useSelector((store: iStore) => store.comicDisplay);
-
-    useEffect(() => {
-        console.log(comicInStore);
-        function findAlreadyVoted() {
-            return comicInStore.score.find(
-                (item) => item.user === user.user._id
-            );
-        }
-        if (comicInStore) {
-            const display = findAlreadyVoted();
-            display?.scored ? setState(display?.scored) : setState(-1);
-            console.log({ display });
-        }
-    }, [comicInStore, comicInStore._id, comicInStore.score, user.user._id]);
+    const alreadyVoted = displayComic.score.find(
+        (item) => item.user === user.user._id
+    );
 
     async function handleChange(ev: SyntheticEvent) {
         const element = ev.target as HTMLFormElement;
         await new ComicHttpStore()
-            .scoreComic(comicInStore._id, element.value)
-            .then((comic) => dispatcher(loadComicDisplayAction(comic)));
+            .scoreComic(displayComic._id, element.value)
+            .then((resp) => {
+                dispatch(updateComicsAction(resp));
+            });
     }
     return (
         <div>
@@ -48,7 +28,7 @@ export function Score({ comic }: { comic: iComic }) {
                 className={styles.select}
                 name="score"
                 id=""
-                value={state}
+                defaultValue={alreadyVoted ? alreadyVoted.scored : -1}
                 onChange={handleChange}
             >
                 <option value="-1">No leído</option>
