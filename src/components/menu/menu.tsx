@@ -59,7 +59,7 @@ export function Menu({ menu }: { menu: Function }) {
                     </Link>
                 ) : (
                     <div className={styles.login}>
-                        <DeleteAccount></DeleteAccount>
+                        <DeleteAccount click={handleClick}></DeleteAccount>
                     </div>
                 )}
             </div>

@@ -7,7 +7,7 @@ export class UserHttpStore {
         this.apiUrl = 'http://localhost:3400/user/';
     }
 
-    registerUser(user: iUser): Promise<iUser> {
+    registerUser(user: Partial<iUser>): Promise<iUser> {
         return fetch(this.apiUrl, {
             method: 'POST',
             body: JSON.stringify(user),
