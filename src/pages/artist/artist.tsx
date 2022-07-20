@@ -12,7 +12,7 @@ export function Artist() {
                 <div>
                     <img
                         src={props.artist.image}
-                        alt=""
+                        alt={props.artist.name}
                         className={styles.img}
                     />
                 </div>
@@ -22,11 +22,10 @@ export function Artist() {
                 </div>
             </div>
             <ul>
-                {props.artist.comics
-                    ? props.artist.comics.map((comic) => (
-                          <PicComic comic={comic}></PicComic>
-                      ))
-                    : ''}
+                {props &&
+                    props.artist.comics.map((comic) => (
+                        <PicComic comic={comic} key={comic._id}></PicComic>
+                    ))}
             </ul>
         </div>
     );
