@@ -6,7 +6,7 @@ import { deleteUserAction } from '../../reducers/users/users.action.creators';
 import { UserHttpStore } from '../../services/user.http.store';
 import { iStore } from '../../store/store';
 
-export function DeleteAccount({ click }: { click: Function }) {
+export function DeleteAccount() {
     const dispatch = useDispatch();
     const user = useSelector((store: iStore) => store.user);
     let navigate = useNavigate();
@@ -26,7 +26,6 @@ export function DeleteAccount({ click }: { click: Function }) {
                 dispatch(deleteUserAction());
                 localStorage.clear();
                 navigate('./home');
-                click();
             }
         });
     }
