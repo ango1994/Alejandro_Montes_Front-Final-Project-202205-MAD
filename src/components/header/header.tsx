@@ -23,10 +23,8 @@ export function Header() {
             <div className={styles.searchContainer}>
                 <div className={styles.searchOnHeader}>
                     <Search setResponse={setResponseProps}></Search>
-                    {response ? (
+                    {response && (
                         <SearchResults comics={response}></SearchResults>
-                    ) : (
-                        ''
                     )}
                 </div>
             </div>
