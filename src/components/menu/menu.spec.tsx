@@ -74,7 +74,7 @@ describe('Given the component Menu', () => {
                     reducer,
                 }
             );
-            const element = screen.getByText(/delete/i);
+            const element = screen.getByText(/Logout/i);
             expect(element).toBeInTheDocument();
         });
     });
