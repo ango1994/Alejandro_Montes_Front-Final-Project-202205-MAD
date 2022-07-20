@@ -1,11 +1,12 @@
 import { iComic } from '../interfaces/iComics';
 import { ComicHttpStore } from './comic.http.store';
+import * as getToken from '../utils/getToken';
 
 const comic1: iComic = {
     artist: [],
     category: 'american',
     description: '',
-    _id: '',
+    _id: 'testing',
     image: '',
     name: '',
     publicationDate: '',
@@ -21,6 +22,10 @@ const comic2: iComic = {
     publicationDate: '',
     score: [],
 };
+
+jest.spyOn(getToken, 'getToken').mockReturnValue({
+    token: '123456789012345678901234',
+});
 
 describe('Given ComicHttpStore', () => {
     describe('When getAllComics is called', () => {
@@ -54,7 +59,7 @@ describe('Given ComicHttpStore', () => {
         });
     });
     describe('When scoreComic is called', () => {
-        test.skip('Then it shoul return the updated comic', async () => {
+        test('Then it shoul return the updated comic', async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 json: jest.fn().mockResolvedValue({
                     ...comic1,
@@ -63,7 +68,6 @@ describe('Given ComicHttpStore', () => {
             });
             const api = new ComicHttpStore();
             const response = await api.scoreComic(comic1._id, 7);
-
             expect(response).toEqual({
                 ...comic1,
                 score: [{ user: '', scored: 7 }],

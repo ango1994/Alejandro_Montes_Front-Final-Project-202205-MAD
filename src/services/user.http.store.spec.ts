@@ -1,5 +1,6 @@
 import { iUser, userWithToken } from '../interfaces/iUser';
 import { UserHttpStore } from './user.http.store';
+import * as getToken from '../utils/getToken';
 
 const user: iUser = {
     name: '',
@@ -14,10 +15,9 @@ const mockuserWithToken: userWithToken = {
     user: user,
 };
 
-jest.spyOn(Storage.prototype, 'getItem');
-Storage.prototype.getItem = jest
-    .fn()
-    .mockReturnValue({ user: mockuserWithToken });
+jest.spyOn(getToken, 'getToken').mockReturnValue({
+    token: '123456789012345678901234',
+});
 
 describe('Given UserHttpStore', () => {
     describe('When registerUser is called', () => {
@@ -41,7 +41,7 @@ describe('Given UserHttpStore', () => {
         });
     });
     describe('When deleteUser is called', () => {
-        test.skip('Then it should delete a user', async () => {
+        test('Then it should delete a user', async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 json: jest.fn().mockResolvedValue({}),
             });
@@ -51,7 +51,7 @@ describe('Given UserHttpStore', () => {
         });
     });
     describe('When updateUser is called', () => {
-        test.skip('Then it should update a user', async () => {
+        test('Then it should update a user', async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 json: jest
                     .fn()
