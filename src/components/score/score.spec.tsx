@@ -65,7 +65,7 @@ describe('Given the component Score', () => {
         });
     });
     describe('When it is called and value input changes', () => {
-        test.skip('Then it should call the api', () => {
+        test('Then it should call the api', () => {
             const api = (ComicHttpStore.prototype.scoreComic = jest
                 .fn()
                 .mockResolvedValue({}));

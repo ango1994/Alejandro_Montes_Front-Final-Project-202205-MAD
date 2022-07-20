@@ -28,7 +28,7 @@ export function Score() {
                 className={styles.select}
                 name="score"
                 id=""
-                defaultValue={alreadyVoted ? alreadyVoted.scored : -1}
+                defaultValue={alreadyVoted && alreadyVoted.scored}
                 onChange={handleChange}
             >
                 <option value="-1">No leído</option>
