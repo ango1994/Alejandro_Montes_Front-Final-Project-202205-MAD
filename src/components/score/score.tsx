@@ -23,6 +23,7 @@ export function Score({ comic }: { comic: iComic }) {
     const comicInStore = useSelector((store: iStore) => store.comicDisplay);
 
     useEffect(() => {
+        console.log(comicInStore);
         function findAlreadyVoted() {
             return comicInStore.score.find(
                 (item) => item.user === user.user._id

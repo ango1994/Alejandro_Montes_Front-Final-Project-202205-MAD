@@ -38,6 +38,7 @@ export class UserHttpStore {
 
     addFavouriteComicToUser(userId: string, comicId: string): Promise<iUser> {
         const token = getToken();
+
         return fetch(this.apiUrl + userId, {
             headers: {
                 'Content-Type': 'application/json',
