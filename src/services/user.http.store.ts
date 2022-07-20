@@ -32,7 +32,7 @@ export class UserHttpStore {
         return fetch(this.apiUrl + 'delete/' + userId, {
             method: 'DELETE',
             headers: {
-                Authorization: 'Bearer ' + token.token,
+                Authorization: 'Bearer ' + token,
             },
         }).then((resp) => resp.json());
     }
@@ -44,7 +44,7 @@ export class UserHttpStore {
             headers: {
                 'Content-Type': 'application/json',
 
-                Authorization: 'Bearer ' + token.token,
+                Authorization: 'Bearer ' + token,
             },
             method: 'PATCH',
             body: JSON.stringify({ comic: comicId }),

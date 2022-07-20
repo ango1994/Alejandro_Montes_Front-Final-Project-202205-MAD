@@ -3,5 +3,5 @@ export function getToken() {
     if (!user) {
         return;
     }
-    return JSON.parse(user);
+    return JSON.parse(user).token;
 }

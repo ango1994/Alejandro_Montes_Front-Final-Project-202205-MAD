@@ -1,35 +1,15 @@
+import { render, screen } from '@testing-library/react';
+import { useSelector } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { iArtist } from '../../interfaces/iArtist';
-import { iComic } from '../../interfaces/iComics';
-import { userWithToken } from '../../interfaces/iUser';
-import { artistsReducer } from '../../reducers/artists/artists.reducer';
-import { comicsReducer } from '../../reducers/comics/comics.reducer';
-import { usersReducer } from '../../reducers/users/users.reducer';
-import { iStore } from '../../store/store';
 import Comic from './comic';
 
-import { render, screen } from '../../utils/test.utils';
-import { comicDisplayReducer } from '../../reducers/comic.display/comic.display.reducer';
-
-const reducer = {
-    comics: comicsReducer,
-    artists: artistsReducer,
-    user: usersReducer,
-    comicDisplay: comicDisplayReducer,
-};
-
-const preloadedState: iStore = {
-    comics: [] as Array<iComic>,
-    artists: [] as Array<iArtist>,
-    user: { token: '' } as userWithToken,
-    comicDisplay: {} as iComic,
-};
-
 jest.mock('react-router-dom', () => ({
-    useLocation: jest.fn().mockResolvedValue({
-        pathname: '/comic',
+    ...jest.requireActual('react-router-dom'),
+    useLocation: () => ({
+        pathname: 'localhost:3000/example/path',
         state: {
-            comic: {
+            comics: {
                 artist: [] as Array<iArtist>,
                 category: 'american',
                 description: '',
@@ -42,16 +22,22 @@ jest.mock('react-router-dom', () => ({
     }),
 }));
 
-describe('Given the componen ProtectRoute', () => {
+jest.mock('react-redux', () => ({
+    ...jest.requireActual('react-redux'),
+    useSelector: jest.fn(),
+}));
+
+describe('Given the componen Comic', () => {
     describe('When it is called with a user token', () => {
         test.skip('Then it should render mycomix page', () => {
+            const mockUseSelector = jest.fn();
+            (useSelector as jest.Mock).mockReturnValue(mockUseSelector);
             render(
                 <MemoryRouter>
                     <Comic></Comic>
-                </MemoryRouter>,
-                { preloadedState, reducer }
+                </MemoryRouter>
             );
-            const element = screen.getByText('Comic');
+            const element = screen.getByText('Artist');
             expect(element).toBeInTheDocument();
         });
     });

@@ -8,7 +8,7 @@ import { comicsReducer } from '../../reducers/comics/comics.reducer';
 import { usersReducer } from '../../reducers/users/users.reducer';
 import { iStore } from '../../store/store';
 import { fireEvent, render, screen } from '../../utils/test.utils';
-import { Header } from './header';
+import { Logout } from './logout';
 
 const reducer = {
     comics: comicsReducer,
@@ -20,35 +20,36 @@ const reducer = {
 const preloadedState: iStore = {
     comics: [] as Array<iComic>,
     artists: [] as Array<iArtist>,
-    user: {} as userWithToken,
+    user: { token: '99', user: { _id: '33' } } as userWithToken,
     comicDisplay: {} as iComic,
 };
-describe('Given the component Header', () => {
+
+const mockFunction = jest.fn();
+
+describe('Given the component logout', () => {
     describe('When it is called', () => {
-        test('Then it should render the header', () => {
+        test('Then it should rednder the logout component', () => {
             render(
                 <MemoryRouter>
-                    <Header></Header>
+                    <Logout click={mockFunction}></Logout>
                 </MemoryRouter>,
                 { preloadedState, reducer }
             );
-            const element = screen.getByText(/menu/i);
-            expect(element).toBeInTheDocument();
+            const text = screen.getByText(/Logout/i);
+            expect(text).toBeInTheDocument();
         });
     });
-    describe('When it is called and button menu is clicked', () => {
-        test('Then it should call toggleMenu funciton', async () => {
+    describe('When it is called and Logout button is clicked', () => {
+        test('Then mockFunction should be called', () => {
             render(
                 <MemoryRouter>
-                    <Header></Header>
+                    <Logout click={mockFunction}></Logout>
                 </MemoryRouter>,
                 { preloadedState, reducer }
             );
-
-            const button = screen.getByText('menu');
+            const button = screen.getByRole('button');
             fireEvent.click(button);
-            const element = screen.getByText(/close/i);
-            expect(element).toBeInTheDocument();
+            expect(mockFunction).toHaveBeenCalled();
         });
     });
 });

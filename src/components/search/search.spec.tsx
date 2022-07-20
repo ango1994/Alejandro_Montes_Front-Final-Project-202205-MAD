@@ -5,6 +5,7 @@ import { userWithToken } from '../../interfaces/iUser';
 import { artistsReducer } from '../../reducers/artists/artists.reducer';
 import { comicsReducer } from '../../reducers/comics/comics.reducer';
 import { usersReducer } from '../../reducers/users/users.reducer';
+import { ComicHttpStore } from '../../services/comic.http.store';
 import { iStore } from '../../store/store';
 import { fireEvent, render, screen } from '../../utils/test.utils';
 import { Search } from './search';
@@ -60,6 +61,9 @@ describe('Given the component Search', () => {
                     reducer,
                 }
             );
+            ComicHttpStore.prototype.getComicByName = jest
+                .fn()
+                .mockResolvedValue({});
             const element = screen.getByRole('textbox');
             fireEvent.change(element, { target: { value: 'test' } });
             expect(element).toBeInTheDocument();

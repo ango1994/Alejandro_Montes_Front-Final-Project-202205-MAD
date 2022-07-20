@@ -7,8 +7,8 @@ import { comicDisplayReducer } from '../../reducers/comic.display/comic.display.
 import { comicsReducer } from '../../reducers/comics/comics.reducer';
 import { usersReducer } from '../../reducers/users/users.reducer';
 import { iStore } from '../../store/store';
-import { fireEvent, render, screen } from '../../utils/test.utils';
-import { Header } from './header';
+import { render, screen } from '../../utils/test.utils';
+import { SearchResults } from './search.results.component';
 
 const reducer = {
     comics: comicsReducer,
@@ -23,32 +23,30 @@ const preloadedState: iStore = {
     user: {} as userWithToken,
     comicDisplay: {} as iComic,
 };
-describe('Given the component Header', () => {
-    describe('When it is called', () => {
-        test('Then it should render the header', () => {
-            render(
-                <MemoryRouter>
-                    <Header></Header>
-                </MemoryRouter>,
-                { preloadedState, reducer }
-            );
-            const element = screen.getByText(/menu/i);
-            expect(element).toBeInTheDocument();
-        });
-    });
-    describe('When it is called and button menu is clicked', () => {
-        test('Then it should call toggleMenu funciton', async () => {
-            render(
-                <MemoryRouter>
-                    <Header></Header>
-                </MemoryRouter>,
-                { preloadedState, reducer }
-            );
+const mockComics: Array<iComic> = [
+    {
+        _id: '',
+        artist: [],
+        category: 'american',
+        description: '',
+        image: '',
+        name: 'test',
+        publicationDate: '',
+        score: [{ scored: 1, user: '' }],
+    },
+];
 
-            const button = screen.getByText('menu');
-            fireEvent.click(button);
-            const element = screen.getByText(/close/i);
-            expect(element).toBeInTheDocument();
+describe('Given the component SearchResults', () => {
+    describe('When it is called', () => {
+        test('Then it shoul print the component', () => {
+            render(
+                <MemoryRouter>
+                    <SearchResults comics={mockComics}></SearchResults>
+                </MemoryRouter>,
+                { preloadedState, reducer }
+            );
+            const text = screen.getByText(/test/i);
+            expect(text).toBeInTheDocument();
         });
     });
 });

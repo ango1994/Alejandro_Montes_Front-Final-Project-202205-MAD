@@ -21,13 +21,12 @@ export class ComicHttpStore {
     }
     scoreComic(comicId: string, score: number): Promise<iComic> {
         const token = getToken();
-
         return fetch(this.apiUrl + 'score/' + comicId, {
             method: 'PATCH',
             body: JSON.stringify({ score: score }),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + token.token,
+                Authorization: 'Bearer ' + token,
             },
         }).then((resp) => resp.json());
     }
