@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { iRouterItem } from '../../interfaces/iRouterItem';
+import { DeleteAccount } from '../delete.account/delete.account';
 import styles from './footer.module.css';
 
 export function Footer({ menuOptions }: { menuOptions: Array<iRouterItem> }) {
@@ -32,6 +33,7 @@ export function Footer({ menuOptions }: { menuOptions: Array<iRouterItem> }) {
                     they are real beyond refute, in all their grandeur and
                     monstrosity.”
                 </p>
+                <DeleteAccount></DeleteAccount>
             </div>
         </div>
     );
