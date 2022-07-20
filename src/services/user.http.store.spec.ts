@@ -6,18 +6,18 @@ const user: iUser = {
     comics: [],
     email: '',
     password: '',
-    _id: '',
+    _id: '123456789012345678901234',
 };
 
 const mockuserWithToken: userWithToken = {
-    token: '',
+    token: '341341324124124',
     user: user,
 };
 
 jest.spyOn(Storage.prototype, 'getItem');
 Storage.prototype.getItem = jest
     .fn()
-    .mockReturnValue({ user: { token: '88' } });
+    .mockReturnValue({ user: mockuserWithToken });
 
 describe('Given UserHttpStore', () => {
     describe('When registerUser is called', () => {
@@ -53,12 +53,15 @@ describe('Given UserHttpStore', () => {
     describe('When updateUser is called', () => {
         test('Then it should update a user', async () => {
             global.fetch = jest.fn().mockResolvedValue({
-                json: jest.fn().mockResolvedValue({ ...user, comics: [''] }),
+                json: jest
+                    .fn()
+                    .mockResolvedValue({ ...user, comics: ['test'] }),
             });
 
             const api = new UserHttpStore();
-            await api.addFavouriteComicToUser(user._id, '');
+            const response = await api.addFavouriteComicToUser(user._id, '99');
             expect(fetch).toBeCalled();
+            expect(response).toEqual({ ...user, comics: ['test'] });
         });
     });
 });

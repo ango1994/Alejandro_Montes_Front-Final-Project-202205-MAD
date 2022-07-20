@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { Score } from '../../components/score/score';
+// import { Score } from '../../components/score/score';
 import { iComic } from '../../interfaces/iComics';
 import { iStore } from '../../store/store';
 
@@ -10,7 +10,7 @@ export function Comic() {
     const location = useLocation();
     const props = location.state as { comic: iComic };
     const comics = useSelector((store: iStore) => store.comics);
-    const user = useSelector((store: iStore) => store.user);
+    // const user = useSelector((store: iStore) => store.user);
 
     if (!props) {
         return <Navigate to="/home" replace />;
@@ -48,11 +48,11 @@ export function Comic() {
                     <div className={styles.infoLow}>
                         <div className={styles.yourScore}>
                             <h3>Your score</h3>
-                            {findComic && user.token ? (
+                            {/* {findComic && user.token ? (
                                 <Score comic={findComic}></Score>
                             ) : (
                                 ''
-                            )}
+                            )} */}
                         </div>
                         <div className={styles.date}>
                             <h3>Publication Date</h3>
