@@ -1,7 +1,9 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
+import { Score } from '../../components/score/score';
 // import { Score } from '../../components/score/score';
 import { iComic } from '../../interfaces/iComics';
+import { loadComicDisplayAction } from '../../reducers/comic.display/comic.display.action.creators';
 import { iStore } from '../../store/store';
 
 import styles from './comic.module.css';
@@ -9,14 +11,20 @@ import styles from './comic.module.css';
 export function Comic() {
     const location = useLocation();
     const props = location.state as { comic: iComic };
+
     const comics = useSelector((store: iStore) => store.comics);
-    // const user = useSelector((store: iStore) => store.user);
+    const user = useSelector((store: iStore) => store.user);
+
+    const dispatch = useDispatch();
 
     if (!props) {
         return <Navigate to="/home" replace />;
     }
+    const findComic = comics.find(
+        (comic) => comic._id === props.comic._id
+    ) as iComic;
 
-    const findComic = comics.find((comic) => comic._id === props.comic._id);
+    dispatch(loadComicDisplayAction(findComic));
 
     const calculateMediaScore = () => {
         if (findComic) {
@@ -48,11 +56,7 @@ export function Comic() {
                     <div className={styles.infoLow}>
                         <div className={styles.yourScore}>
                             <h3>Your score</h3>
-                            {/* {findComic && user.token ? (
-                                <Score comic={findComic}></Score>
-                            ) : (
-                                ''
-                            )} */}
+                            {findComic && user.token ? <Score></Score> : ''}
                         </div>
                         <div className={styles.date}>
                             <h3>Publication Date</h3>
