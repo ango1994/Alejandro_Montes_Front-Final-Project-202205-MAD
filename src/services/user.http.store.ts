@@ -27,11 +27,12 @@ export class UserHttpStore {
         }).then((resp) => resp.json());
     }
 
-    deleteUser(userId: string, token: string): Promise<iUser> {
+    deleteUser(userId: string): Promise<iUser> {
+        const token = getToken();
         return fetch(this.apiUrl + 'delete/' + userId, {
             method: 'DELETE',
             headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: 'Bearer ' + token.token,
             },
         }).then((resp) => resp.json());
     }
