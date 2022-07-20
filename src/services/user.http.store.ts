@@ -7,7 +7,7 @@ export class UserHttpStore {
         this.apiUrl = 'http://localhost:3400/user/';
     }
 
-    registerUser(user: iUser): Promise<iUser> {
+    registerUser(user: Partial<iUser>): Promise<iUser> {
         return fetch(this.apiUrl, {
             method: 'POST',
             body: JSON.stringify(user),
@@ -27,11 +27,12 @@ export class UserHttpStore {
         }).then((resp) => resp.json());
     }
 
-    deleteUser(userId: string, token: string): Promise<iUser> {
+    deleteUser(userId: string): Promise<iUser> {
+        const token = getToken();
         return fetch(this.apiUrl + 'delete/' + userId, {
             method: 'DELETE',
             headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: 'Bearer ' + token.token,
             },
         }).then((resp) => resp.json());
     }

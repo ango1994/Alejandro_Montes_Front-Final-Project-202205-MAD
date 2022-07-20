@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { iStore } from '../../store/store';
+import { DeleteAccount } from '../delete.account/delete.account';
 import styles from './menu.module.css';
 
 export function Menu({ menu }: { menu: Function }) {
@@ -57,7 +58,9 @@ export function Menu({ menu }: { menu: Function }) {
                         login
                     </Link>
                 ) : (
-                    <p className={styles.login}>delete account</p>
+                    <div className={styles.login}>
+                        <DeleteAccount click={handleClick}></DeleteAccount>
+                    </div>
                 )}
             </div>
         </div>

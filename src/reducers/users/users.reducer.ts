@@ -1,6 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { userWithToken } from '../../interfaces/iUser';
-import { loadUserAction, updateUserAction } from './users.action.creators';
+import {
+    deleteUserAction,
+    loadUserAction,
+    updateUserAction,
+} from './users.action.creators';
 
 const initialState: userWithToken = {
     token: '',
@@ -19,5 +23,19 @@ export const usersReducer = createReducer(initialState, (builder) => {
             ...state,
             user: action.payload.user,
         }))
+        .addCase(
+            deleteUserAction,
+            (state, action) =>
+                (state = {
+                    token: '',
+                    user: {
+                        _id: '',
+                        comics: [],
+                        email: '',
+                        name: '',
+                        password: '',
+                    },
+                })
+        )
         .addDefaultCase((state) => state);
 });
