@@ -12,9 +12,9 @@ export function Categories() {
             <div className={styles.page}></div>
             <div className={styles.categories}>
                 <div className={styles.container}>
-                    <h1 className={styles.title}>categories</h1>
-                    <h1 className={styles.title}>categories</h1>
-                    <h1 className={styles.title}>categories</h1>
+                    <h1 className={styles.title}>CATEGORIES</h1>
+                    <h1 className={styles.title}>CATEGORIES</h1>
+                    <h1 className={styles.title}>CATEGORIES</h1>
                 </div>
             </div>
             <div>

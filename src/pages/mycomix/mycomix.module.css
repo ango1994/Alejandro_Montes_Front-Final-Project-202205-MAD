@@ -14,6 +14,17 @@
 
 .title {
     font-size: 6rem;
+    animation: 2s first;
+}
+
+@keyframes first {
+    0% {
+        color: white;
+    }
+
+    100% {
+        color: #101010;
+    }
 }
 
 .list {

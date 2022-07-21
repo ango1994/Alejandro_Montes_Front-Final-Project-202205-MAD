@@ -67,7 +67,7 @@ export function Login() {
                     placeholder="Password"
                 />
                 <Link to={'/register'} className={styles.register}>
-                    Not account yet?
+                    No account yet?
                 </Link>
                 <button type="submit" className={styles.sendButton}>
                     Send

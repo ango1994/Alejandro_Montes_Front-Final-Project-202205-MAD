@@ -12,7 +12,7 @@
 
 .bold {
     font-weight: bolder;
-    animation: 5s slideInFromLeft;
+    animation: 5s transition;
 }
 
 .carousel {
@@ -27,7 +27,7 @@
     margin: 0px 10px;
 }
 
-@keyframes slideInFromLeft {
+@keyframes transition {
     0% {
         color: #101010;
     }

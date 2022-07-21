@@ -18,13 +18,26 @@
 .title {
     text-transform: uppercase;
     color: #101010;
-    font-size: 3rem;
+    font-size: 4rem;
     text-align: justify;
     position: static;
+    animation: 2s first;
 }
 
 .right {
     padding: 100px 0px;
     display: flex;
     justify-content: flex-end;
+}
+
+@keyframes first {
+    0% {
+        transform: translateY(+100%);
+        color: white;
+    }
+
+    100% {
+        transform: translateY(0);
+        color: #101010;
+    }
 }
