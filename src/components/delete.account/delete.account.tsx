@@ -12,7 +12,6 @@ export function DeleteAccount() {
     let navigate = useNavigate();
 
     function handleClick(ev: SyntheticEvent) {
-        console.log('click');
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

@@ -10,10 +10,10 @@ export function MyComix() {
             <h1>mycomix</h1>
             {comics
                 ? comics.map((comic) => (
-                      <>
+                      <div key={comic._id}>
                           <PicComic comic={comic} key={comic._id}></PicComic>
                           <p className={styles.name}>{comic.name}</p>
-                      </>
+                      </div>
                   ))
                 : 'No comics found'}
         </div>
