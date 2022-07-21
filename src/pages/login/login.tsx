@@ -59,7 +59,7 @@ export function Login() {
                 />
                 <input
                     className={styles.input}
-                    type="text"
+                    type="password"
                     name="password"
                     required
                     value={formData.user.password}

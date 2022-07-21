@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteUserAction } from '../../reducers/users/users.action.creators';
+import styles from './logout.module.css';
 
 export function Logout({ click }: { click: Function }) {
     const dispatch = useDispatch();
@@ -12,5 +13,9 @@ export function Logout({ click }: { click: Function }) {
         navigate('./home');
         click();
     }
-    return <button onClick={handleClick}>Logout</button>;
+    return (
+        <button onClick={handleClick} className={styles.logOut}>
+            Logout
+        </button>
+    );
 }

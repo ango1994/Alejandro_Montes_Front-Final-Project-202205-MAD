@@ -23,7 +23,7 @@ const menuOptions = [{ path: '', label: '', page: <Home></Home> }];
 const preloadedState: iStore = {
     comics: [] as Array<iComic>,
     artists: [] as Array<iArtist>,
-    user: {} as userWithToken,
+    user: { token: '78' } as userWithToken,
     comicDisplay: {} as iComic,
 };
 describe('Given the component Header', () => {

@@ -16,12 +16,22 @@
     justify-content: space-around;
 }
 
+.item {
+    display: flex;
+}
+
 .navItem {
     font-family: 'PPNeueMontreal';
     margin: 5px 79px;
     width: fit-content;
     color: white;
     text-decoration: none;
+    transition: 0.7s;
+}
+
+.navItem:hover {
+    letter-spacing: 4px;
+    transition: 0.7s;
 }
 
 .menuRight {
@@ -52,4 +62,71 @@
 .small {
     width: fit-content;
     font-size: 1rem;
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.underlineHome {
+    height: 2px;
+    width: 0px;
+    background-color: white;
+    margin-left: 85px;
+    transition: 0.7s;
+}
+
+.underlineArtists {
+    height: 2px;
+    width: 0px;
+    background-color: white;
+    margin-left: 85px;
+    transition: 0.7s;
+}
+
+.underlineCategories {
+    height: 2px;
+    width: 0px;
+    background-color: white;
+    margin-left: 85px;
+    transition: 0.7s;
+}
+
+.underlineMycomix {
+    height: 2px;
+    width: 0px;
+    background-color: white;
+    margin-left: 85px;
+    transition: 0.7s;
+}
+
+.item:hover .underlineHome {
+    height: 2px;
+    width: 265px;
+    background-color: white;
+    margin-left: 85px;
+    transition: 0.7s;
+}
+
+.item:hover .underlineArtists {
+    height: 2px;
+    width: 330px;
+    background-color: white;
+    margin-left: 85px;
+    transition: 0.7s;
+}
+
+.item:hover .underlineCategories {
+    height: 2px;
+    width: 540px;
+    background-color: white;
+    margin-left: 85px;
+    transition: 0.7s;
+}
+
+.item:hover .underlineMycomix {
+    height: 2px;
+    width: 420px;
+    background-color: white;
+    margin-left: 85px;
+    transition: 0.7s;
 }

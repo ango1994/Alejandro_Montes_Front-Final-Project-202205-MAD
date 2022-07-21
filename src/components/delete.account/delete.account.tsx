@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { deleteUserAction } from '../../reducers/users/users.action.creators';
 import { UserHttpStore } from '../../services/user.http.store';
 import { iStore } from '../../store/store';
+import styles from './delete.account.module.css';
 
 export function DeleteAccount() {
     const dispatch = useDispatch();
@@ -30,5 +31,9 @@ export function DeleteAccount() {
         });
     }
 
-    return <button onClick={handleClick}>Delete Account</button>;
+    return (
+        <button onClick={handleClick} className={styles.delete}>
+            Delete Account
+        </button>
+    );
 }

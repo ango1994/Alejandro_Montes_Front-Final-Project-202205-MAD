@@ -77,8 +77,8 @@ describe('Given the Login component', () => {
                 { preloadedState, reducer }
             );
             const inputs = screen.getAllByRole('textbox');
+
             fireEvent.change(inputs[0], { target: { value: 'test' } });
-            fireEvent.change(inputs[1], { target: { value: 'test' } });
             const button = screen.getByText('Send');
             fireEvent.click(button);
             expect(UserHttpStore.prototype.loginUser).toBeCalled();
