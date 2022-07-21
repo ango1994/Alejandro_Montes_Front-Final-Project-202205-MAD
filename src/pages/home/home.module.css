@@ -10,10 +10,29 @@
     padding-left: 150px;
 }
 
-.container {
-    height: 500px;
-}
-
 .bold {
     font-weight: bolder;
+    animation: 5s slideInFromLeft;
+}
+
+.carousel {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.car {
+    height: 600px;
+    margin: 0px 10px;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        color: #101010;
+    }
+
+    100% {
+        color: white;
+    }
 }
