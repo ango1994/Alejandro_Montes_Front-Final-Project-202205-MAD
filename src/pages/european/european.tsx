@@ -7,7 +7,7 @@ export function European() {
     const comics = useSelector((store: iStore) => store.comics);
     return (
         <div>
-            <h1>European</h1>
+            <h1 className={styles.title}>European</h1>
             <ul className={styles.list}>
                 {comics
                     .filter((comic) => comic.category === 'european')

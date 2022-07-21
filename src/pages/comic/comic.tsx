@@ -60,7 +60,11 @@ export function Comic() {
                     <div className={styles.infoLow}>
                         <div className={styles.yourScore}>
                             <h3>Your score</h3>
-                            {findComic && user.token ? <Score></Score> : ''}
+                            {findComic && user.token ? (
+                                <Score></Score>
+                            ) : (
+                                <p>Login to score</p>
+                            )}
                         </div>
                         <div className={styles.date}>
                             <h3>Publication Date</h3>
@@ -68,11 +72,7 @@ export function Comic() {
                         </div>
                         <div className={styles.artist}>
                             <h3>Artist</h3>
-                            <p>
-                                {props.comic.artist[0]
-                                    ? props.comic.artist[0].name
-                                    : ''}
-                            </p>
+                            <p>{findComic && findComic.artist[0].name}</p>
                         </div>
                     </div>
                 </div>
