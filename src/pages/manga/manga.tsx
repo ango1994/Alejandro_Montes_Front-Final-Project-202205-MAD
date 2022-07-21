@@ -12,7 +12,7 @@ export function Manga() {
                 {comics
                     .filter((comic) => comic.category === 'manga')
                     .map((comic) => (
-                        <li className={styles.comic}>
+                        <li className={styles.comic} key={comic._id}>
                             <PicComic comic={comic}></PicComic>
                             <h3 className={styles.comicName}>{comic.name}</h3>
                         </li>

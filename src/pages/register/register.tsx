@@ -15,7 +15,6 @@ export function Register() {
     const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
         const response = await new UserHttpStore().registerUser(formData);
-        console.log(response);
 
         if (response.name) {
             navigate('/login');

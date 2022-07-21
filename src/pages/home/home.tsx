@@ -1,6 +1,8 @@
+import styles from './home.module.css';
+
 export function Home() {
     return (
-        <div>
+        <div className={styles.container}>
             <div>
                 <p>The place to manage your comics</p>
             </div>
