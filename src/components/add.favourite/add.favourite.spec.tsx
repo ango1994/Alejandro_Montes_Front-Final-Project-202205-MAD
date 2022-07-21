@@ -26,13 +26,17 @@ const preloadedState: iStore = {
 };
 
 const mockComic = {} as iComic;
+const mockFunction = () => {};
 
 describe('Given the component AddFavourite', () => {
     describe('When it is called and Add Favourite button is clicked', () => {
         test('The it should call handleClick funciton', () => {
             render(
                 <MemoryRouter>
-                    <AddFavourite comic={mockComic}></AddFavourite>
+                    <AddFavourite
+                        comic={mockComic}
+                        func={mockFunction}
+                    ></AddFavourite>
                 </MemoryRouter>,
                 { preloadedState, reducer }
             );

@@ -6,7 +6,13 @@ import { UserHttpStore } from '../../services/user.http.store';
 import { iStore } from '../../store/store';
 import styles from './add.favourite.module.css';
 
-export function AddFavourite({ comic }: { comic: iComic }) {
+export function AddFavourite({
+    comic,
+    func,
+}: {
+    comic: iComic;
+    func: Function;
+}) {
     const dispatch = useDispatch();
     const user = useSelector((store: iStore) => store.user);
 
@@ -27,6 +33,7 @@ export function AddFavourite({ comic }: { comic: iComic }) {
             'user',
             JSON.stringify({ token: user.token, user: response })
         );
+        func();
     };
     return (
         <button onClick={handleClick} className={styles.button}>
