@@ -5,6 +5,18 @@
 .artists {
     font-size: 7rem;
     font-weight: bold;
+    animation: 3s slideInFromLeft;
+}
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateY(+100%);
+        color: white;
+    }
+
+    100% {
+        transform: translateY(0);
+        color: #101010;
+    }
 }
 
 .containerArists {
