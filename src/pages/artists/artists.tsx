@@ -7,7 +7,11 @@ export function Artists() {
     const artists = useSelector((store: iStore) => store.artists);
     return (
         <div>
-            <h1>Artists</h1>
+            <div className={styles.header}></div>
+            <div className={styles.containerArists}>
+                <h1 className={styles.artists}>Artists</h1>
+            </div>
+
             <ul className={styles.list}>
                 {artists.map((artist) => (
                     <li key={artist.name} className={styles.artist}>
