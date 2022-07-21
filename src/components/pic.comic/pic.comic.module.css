@@ -1,4 +1,11 @@
 .img {
     height: 300px;
     margin-top: 200px;
+    transition: 0.3s;
+}
+
+img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    animation: normal;
 }

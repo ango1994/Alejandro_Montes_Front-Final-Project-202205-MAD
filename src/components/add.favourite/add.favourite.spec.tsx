@@ -39,7 +39,7 @@ describe('Given the component AddFavourite', () => {
             const result = (UserHttpStore.prototype.addFavouriteComicToUser =
                 jest.fn().mockResolvedValue({} as iUser));
 
-            const button = screen.getByText('Add Favourite');
+            const button = screen.getByText('Add favourite');
             fireEvent.click(button);
             expect(result).toHaveBeenCalled();
         });

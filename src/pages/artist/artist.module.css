@@ -1,7 +1,50 @@
+.header {
+    height: 200px;
+}
+
 .img {
     height: 400px;
+    margin-top: 0;
+    margin-left: 40px;
 }
 
 .container {
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 60px;
+
+    align-items: stretch;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0px 100px;
+    justify-items: center;
+    align-items: center;
+    list-style: none;
+}
+
+.comic {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.comicName {
+    margin-top: 10px;
+    font-weight: lighter;
+}
+
+.name {
+    margin-bottom: 30px;
+}
+
+.about {
+    width: 600px;
+    font-size: 1.5rem;
 }
