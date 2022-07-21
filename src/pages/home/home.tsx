@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import styles from './home.module.css';
 
 export function Home() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div>
             <div className={styles.header}></div>

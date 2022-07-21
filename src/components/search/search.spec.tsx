@@ -69,4 +69,24 @@ describe('Given the component Search', () => {
             expect(element).toBeInTheDocument();
         });
     });
+    describe('When it is called and textbox is clicked', () => {
+        test('Then it should call setState', () => {
+            render(
+                <BrowserRouter>
+                    <Search setResponse={() => {}}></Search>
+                </BrowserRouter>,
+                {
+                    preloadedState,
+                    reducer,
+                }
+            );
+            ComicHttpStore.prototype.getComicByName = jest
+                .fn()
+                .mockResolvedValue({});
+            const element = screen.getByRole('textbox');
+            fireEvent.click(element);
+            fireEvent.change(element, { target: { value: 'test' } });
+            expect(element).toBeInTheDocument();
+        });
+    });
 });

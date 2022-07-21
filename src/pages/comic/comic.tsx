@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { Score } from '../../components/score/score';
@@ -9,6 +10,9 @@ import { iStore } from '../../store/store';
 import styles from './comic.module.css';
 
 export function Comic() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const location = useLocation();
     const props = location.state as { comic: iComic };
 

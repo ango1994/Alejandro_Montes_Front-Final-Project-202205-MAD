@@ -32,6 +32,7 @@ export function Register() {
     }
     return (
         <div>
+            <div className={styles.header}></div>
             <form
                 onSubmit={handleSubmit}
                 className={styles.form}

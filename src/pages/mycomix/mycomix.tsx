@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { PicComic } from '../../components/pic.comic/pic.comic';
 import { iStore } from '../../store/store';
 import styles from './mycomix.module.css';
 
 export function MyComix() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const comics = useSelector((store: iStore) => store.user.user.comics);
     return (
         <div>

@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loadUserAction } from '../../reducers/users/users.action.creators';
@@ -7,6 +7,9 @@ import Swal from 'sweetalert2';
 import styles from './login.module.css';
 
 export function Login() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         token: '',

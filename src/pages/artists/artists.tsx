@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { PicArtist } from '../../components/pic.artist/pic.artist';
 import { iStore } from '../../store/store';
 import styles from './artists.module.css';
 
 export function Artists() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const artists = useSelector((store: iStore) => store.artists);
     return (
         <div>

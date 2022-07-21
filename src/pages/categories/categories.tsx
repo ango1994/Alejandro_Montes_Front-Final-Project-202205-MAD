@@ -1,7 +1,12 @@
 import styles from './categories.module.css';
 import Category from '../../components/category/category';
+import { useEffect } from 'react';
 
 export function Categories() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div>
             <div className={styles.page}></div>

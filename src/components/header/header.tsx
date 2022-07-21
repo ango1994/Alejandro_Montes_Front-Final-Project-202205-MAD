@@ -17,15 +17,21 @@ export function Header() {
         setResponse(resp);
     }, []);
 
+    function handleClick() {
+        setResponse([]);
+    }
+
     return (
         <>
             {menu ? <Menu menu={toggleMenu}></Menu> : ''}
             <div className={styles.searchContainer}>
                 <div className={styles.searchOnHeader}>
                     <Search setResponse={setResponseProps}></Search>
-                    {response && (
-                        <SearchResults comics={response}></SearchResults>
-                    )}
+                    <div onClick={handleClick} id="response">
+                        {response && (
+                            <SearchResults comics={response}></SearchResults>
+                        )}
+                    </div>
                 </div>
             </div>
             <div className={styles.header}>
