@@ -1,4 +1,19 @@
 .img {
     height: 300px;
     margin-top: 200px;
+    transition: 0.3s;
+}
+
+img:hover {
+    scale: (0.1);
+}
+
+.notFaved {
+    filter: none;
+    transition: 1s;
+}
+
+.faved {
+    filter: grayscale(100%);
+    transition: 1s;
 }

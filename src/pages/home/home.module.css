@@ -1,0 +1,38 @@
+.header {
+    height: 200px;
+}
+
+.text {
+    font-size: 5.5rem;
+    width: 900px;
+    font-weight: 500;
+    padding-top: 100px;
+    padding-left: 150px;
+}
+
+.bold {
+    font-weight: bolder;
+    animation: 5s transition;
+}
+
+.carousel {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.car {
+    height: 600px;
+    margin: 0px 10px;
+}
+
+@keyframes transition {
+    0% {
+        color: #101010;
+    }
+
+    100% {
+        color: white;
+    }
+}

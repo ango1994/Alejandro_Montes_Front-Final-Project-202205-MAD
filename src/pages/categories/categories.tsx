@@ -1,15 +1,20 @@
 import styles from './categories.module.css';
 import Category from '../../components/category/category';
+import { useEffect } from 'react';
 
 export function Categories() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div>
             <div className={styles.page}></div>
             <div className={styles.categories}>
                 <div className={styles.container}>
-                    <h1 className={styles.title}>categories</h1>
-                    <h1 className={styles.title}>categories</h1>
-                    <h1 className={styles.title}>categories</h1>
+                    <h1 className={styles.title}>CATEGORIES</h1>
+                    <h1 className={styles.title}>CATEGORIES</h1>
+                    <h1 className={styles.title}>CATEGORIES</h1>
                 </div>
             </div>
             <div>

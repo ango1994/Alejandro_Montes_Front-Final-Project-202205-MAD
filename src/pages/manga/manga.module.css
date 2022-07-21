@@ -7,6 +7,10 @@
     list-style: none;
 }
 
+.title {
+    color: #101010;
+}
+
 .comic {
     display: flex;
     flex-direction: column;

@@ -1,3 +1,52 @@
+.header {
+    height: 200px;
+}
+
+.noComics {
+    color: white;
+}
+
+.container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    color: #101010;
+}
+
+.title {
+    font-size: 6rem;
+    animation: 2s first;
+}
+
+@keyframes first {
+    0% {
+        color: white;
+    }
+
+    100% {
+        color: #101010;
+    }
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0px 100px;
+    justify-items: center;
+    align-items: center;
+    list-style: none;
+}
+
+.comic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .name {
     color: white;
 }

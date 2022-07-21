@@ -8,6 +8,7 @@ export function Artist() {
     const props = location.state as { artist: iArtist };
     return (
         <div>
+            <div className={styles.header}></div>
             <div className={styles.container}>
                 <div>
                     <img
@@ -16,15 +17,18 @@ export function Artist() {
                         className={styles.img}
                     />
                 </div>
-                <div>
-                    <h2>{props.artist.name}</h2>
-                    <p>{props.artist.about}</p>
+                <div className={styles.info}>
+                    <h2 className={styles.name}>{props.artist.name}</h2>
+                    <p className={styles.about}>{props.artist.about}</p>
                 </div>
             </div>
-            <ul>
+            <ul className={styles.list}>
                 {props &&
                     props.artist.comics.map((comic) => (
-                        <PicComic comic={comic} key={comic._id}></PicComic>
+                        <li className={styles.comic}>
+                            <PicComic comic={comic} key={comic._id}></PicComic>
+                            <p className={styles.comicName}>{comic.name}</p>
+                        </li>
                     ))}
             </ul>
         </div>

@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loadUserAction } from '../../reducers/users/users.action.creators';
@@ -7,6 +7,9 @@ import Swal from 'sweetalert2';
 import styles from './login.module.css';
 
 export function Login() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         token: '',
@@ -56,7 +59,7 @@ export function Login() {
                 />
                 <input
                     className={styles.input}
-                    type="text"
+                    type="password"
                     name="password"
                     required
                     value={formData.user.password}
@@ -64,7 +67,7 @@ export function Login() {
                     placeholder="Password"
                 />
                 <Link to={'/register'} className={styles.register}>
-                    Not account yet?
+                    No account yet?
                 </Link>
                 <button type="submit" className={styles.sendButton}>
                     Send

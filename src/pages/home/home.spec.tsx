@@ -23,9 +23,9 @@ const preloadedState: iStore = {
     user: {} as userWithToken,
     comicDisplay: {} as iComic,
 };
-describe('Given the component Header', () => {
+describe('Given the component Home', () => {
     describe('When it is called', () => {
-        test('Then it should render the header', () => {
+        test('Then it should render the home', () => {
             render(
                 <BrowserRouter>
                     <Home></Home>
@@ -35,7 +35,7 @@ describe('Given the component Header', () => {
                     reducer,
                 }
             );
-            const element = screen.getByText(/the place/i);
+            const element = screen.getByText(/place/i);
             expect(element).toBeInTheDocument();
         });
     });

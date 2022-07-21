@@ -32,6 +32,7 @@ export function Register() {
     }
     return (
         <div>
+            <div className={styles.header}></div>
             <form
                 onSubmit={handleSubmit}
                 className={styles.form}
@@ -48,7 +49,7 @@ export function Register() {
                 />
                 <input
                     className={styles.input}
-                    type="text"
+                    type="password"
                     name="password"
                     value={formData.password}
                     onChange={handleChange}

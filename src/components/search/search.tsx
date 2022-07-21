@@ -22,6 +22,10 @@ export function Search({ setResponse }: { setResponse: Function }) {
         setSearchData(element.value);
     };
 
+    function handleClick() {
+        setSearchData('');
+    }
+
     return (
         <div>
             <form autoComplete="off">
@@ -33,6 +37,7 @@ export function Search({ setResponse }: { setResponse: Function }) {
                     value={searchData}
                     placeholder="Search a comic"
                     onChange={handleChange}
+                    onClick={handleClick}
                 />
             </form>
         </div>

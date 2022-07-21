@@ -10,7 +10,7 @@ jest.mock('react-router-dom', () => ({
         pathname: 'localhost:3000/example/path',
         state: {
             comic: {
-                artist: [] as Array<iArtist>,
+                artist: [{ name: 'test' }] as Array<iArtist>,
                 category: 'american',
                 description: '',
                 _id: '239832',
@@ -35,7 +35,11 @@ describe('Given the componen Comic', () => {
 
             (useDispatch as jest.Mock).mockReturnValue(mockUseDispatch);
             (useSelector as jest.Mock).mockReturnValue([
-                { _id: '239832', score: [{ user: '', scored: 7 }] },
+                {
+                    _id: '239832',
+                    score: [{ user: '', scored: 7 }],
+                    artist: [{ name: 'test' }],
+                },
             ]);
             useLocation();
             render(
@@ -53,7 +57,11 @@ describe('Given the componen Comic', () => {
 
             (useDispatch as jest.Mock).mockReturnValue(mockUseDispatch);
             (useSelector as jest.Mock).mockReturnValue([
-                { _id: '239832', score: [{ user: '', scored: 7 }] },
+                {
+                    _id: '239832',
+                    score: [{ user: '', scored: 7 }],
+                    artist: [{ name: 'test' }],
+                },
             ]);
 
             render(

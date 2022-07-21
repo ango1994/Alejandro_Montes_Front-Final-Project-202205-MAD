@@ -1,9 +1,12 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { iRouterItem } from '../../interfaces/iRouterItem';
+import { iStore } from '../../store/store';
 import { DeleteAccount } from '../delete.account/delete.account';
 import styles from './footer.module.css';
 
 export function Footer({ menuOptions }: { menuOptions: Array<iRouterItem> }) {
+    const user = useSelector((store: iStore) => store.user);
     return (
         <div className={styles.footer}>
             <div className={styles.top}>
@@ -33,7 +36,7 @@ export function Footer({ menuOptions }: { menuOptions: Array<iRouterItem> }) {
                     they are real beyond refute, in all their grandeur and
                     monstrosity.”
                 </p>
-                <DeleteAccount></DeleteAccount>
+                {user.token && <DeleteAccount></DeleteAccount>}
             </div>
         </div>
     );
