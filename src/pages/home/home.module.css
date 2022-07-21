@@ -1,0 +1,19 @@
+.header {
+    height: 200px;
+}
+
+.text {
+    font-size: 5.5rem;
+    width: 900px;
+    font-weight: 500;
+    padding-top: 100px;
+    padding-left: 150px;
+}
+
+.container {
+    height: 500px;
+}
+
+.bold {
+    font-weight: bolder;
+}
